@@ -33,5 +33,10 @@ namespace Sats
             FormNovoPonto form = new FormNovoPonto();
             form.Show();
         }
+
+        private void btnPesquisarPonto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

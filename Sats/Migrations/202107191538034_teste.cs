@@ -27,6 +27,7 @@
                         Nome_Ponto = c.String(maxLength: 50, storeType: "nvarchar"),
                         Endereço_Ponto = c.String(maxLength: 100, storeType: "nvarchar"),
                         Nome_Medidor = c.String(maxLength: 50, storeType: "nvarchar"),
+                        Tipo_Medidor = c.String(maxLength: 50, storeType: "nvarchar"),
                         Macro_ID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID_Ponto)

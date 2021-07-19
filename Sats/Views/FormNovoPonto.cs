@@ -37,17 +37,18 @@ namespace Sats.Views
                     var query = Context.Set<Ponto>();
                     query.Add(new Ponto
                     {
-//                        Macro = cboxPontoMacro.SelectedItem.ToString()
+                        Macro = cboxPontoMacro.SelectedItem.ToString(),
                         Nome_Ponto = txtNomePonto.Text,
                         Endereço_Ponto = txtEndereço.Text,
                         Nome_Medidor = txtNomeMedidor.Text,
                         Tipo_Medidor = cbxPontoTipo.SelectedItem.ToString()
                     });
+                    Context.SaveChanges();
                 }
             }
-            catch(InvalidCastException)
+            catch(Exception ex)
             {
-                Console.WriteLine("Tente Novamente");
+                Console.WriteLine(ex.Message);
             }
         }
 

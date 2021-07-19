@@ -111,9 +111,9 @@ namespace Sats.Views
             "Vazão",
             "Nivel",
             "Bomba"});
-            this.cbxPontoTipo.Location = new System.Drawing.Point(599, 27);
+            this.cbxPontoTipo.Location = new System.Drawing.Point(536, 27);
             this.cbxPontoTipo.Name = "cbxPontoTipo";
-            this.cbxPontoTipo.Size = new System.Drawing.Size(167, 23);
+            this.cbxPontoTipo.Size = new System.Drawing.Size(230, 23);
             this.cbxPontoTipo.TabIndex = 7;
             this.cbxPontoTipo.SelectedIndexChanged += new System.EventHandler(this.cbxPontoTipo_SelectedIndexChanged);
             // 

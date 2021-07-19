@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using MySql.Data.EntityFramework;
 using System.Data.Common;
-using static Sats.Models.Tabelas;
-
 namespace Sats.Models
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]

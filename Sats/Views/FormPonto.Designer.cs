@@ -142,6 +142,7 @@ namespace Sats
             this.btnPesquisarPonto.TabIndex = 6;
             this.btnPesquisarPonto.Text = "Pesquisar Ponto";
             this.btnPesquisarPonto.UseVisualStyleBackColor = false;
+            this.btnPesquisarPonto.Click += new System.EventHandler(this.btnPesquisarPonto_Click);
             // 
             // btnApagarPonto
             // 
