@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sats.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,8 @@ namespace Sats
 
         private void btnNovoPonto_Click(object sender, EventArgs e)
         {
-
+            FormNovoPonto form = new FormNovoPonto();
+            form.Show();
         }
     }
 }

@@ -31,18 +31,18 @@ namespace Sats
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.dgvPonto_Macro = new System.Windows.Forms.DataGridView();
+            this.colMacroDGVPonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dgvPonto_Leitura = new System.Windows.Forms.DataGridView();
+            this.colLeituraDGVPonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNovoPonto = new System.Windows.Forms.Button();
             this.btnEditarPonto = new System.Windows.Forms.Button();
             this.btnPesquisarPonto = new System.Windows.Forms.Button();
             this.btnApagarPonto = new System.Windows.Forms.Button();
-            this.colLeituraDGVPonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMacroDGVPonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPonto_Macro)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPonto_Leitura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,15 +64,6 @@ namespace Sats
             this.panel2.Size = new System.Drawing.Size(314, 178);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dgvPonto_Leitura);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 446);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(784, 303);
-            this.panel3.TabIndex = 2;
-            // 
             // dgvPonto_Macro
             // 
             this.dgvPonto_Macro.BackgroundColor = System.Drawing.Color.AliceBlue;
@@ -85,6 +76,21 @@ namespace Sats
             this.dgvPonto_Macro.Size = new System.Drawing.Size(314, 178);
             this.dgvPonto_Macro.TabIndex = 0;
             // 
+            // colMacroDGVPonto
+            // 
+            this.colMacroDGVPonto.HeaderText = "Macros";
+            this.colMacroDGVPonto.Name = "colMacroDGVPonto";
+            this.colMacroDGVPonto.Width = 271;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvPonto_Leitura);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 438);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(784, 303);
+            this.panel3.TabIndex = 2;
+            // 
             // dgvPonto_Leitura
             // 
             this.dgvPonto_Leitura.BackgroundColor = System.Drawing.Color.AliceBlue;
@@ -96,6 +102,12 @@ namespace Sats
             this.dgvPonto_Leitura.RowTemplate.Height = 25;
             this.dgvPonto_Leitura.Size = new System.Drawing.Size(784, 303);
             this.dgvPonto_Leitura.TabIndex = 3;
+            // 
+            // colLeituraDGVPonto
+            // 
+            this.colLeituraDGVPonto.HeaderText = "Leituras";
+            this.colLeituraDGVPonto.Name = "colLeituraDGVPonto";
+            this.colLeituraDGVPonto.Width = 740;
             // 
             // btnNovoPonto
             // 
@@ -142,24 +154,12 @@ namespace Sats
             this.btnApagarPonto.Text = "Apagar Ponto";
             this.btnApagarPonto.UseVisualStyleBackColor = false;
             // 
-            // colLeituraDGVPonto
-            // 
-            this.colLeituraDGVPonto.HeaderText = "Leituras";
-            this.colLeituraDGVPonto.Name = "colLeituraDGVPonto";
-            this.colLeituraDGVPonto.Width = 740;
-            // 
-            // colMacroDGVPonto
-            // 
-            this.colMacroDGVPonto.HeaderText = "Macros";
-            this.colMacroDGVPonto.Name = "colMacroDGVPonto";
-            this.colMacroDGVPonto.Width = 271;
-            // 
             // FormPonto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(784, 749);
+            this.ClientSize = new System.Drawing.Size(784, 741);
             this.Controls.Add(this.btnApagarPonto);
             this.Controls.Add(this.btnPesquisarPonto);
             this.Controls.Add(this.btnEditarPonto);
@@ -171,8 +171,8 @@ namespace Sats
             this.Text = "Pontos";
             this.Load += new System.EventHandler(this.FormPonto_Load);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPonto_Macro)).EndInit();
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPonto_Leitura)).EndInit();
             this.ResumeLayout(false);
 
