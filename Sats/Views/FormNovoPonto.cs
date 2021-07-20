@@ -34,21 +34,22 @@ namespace Sats.Views
             {
                 using (var Context = new Context())
                 {
-                    var query = Context.Set<Ponto>();
-                    query.Add(new Ponto
-                    {
-                        Macro = cboxPontoMacro.SelectedItem.ToString(),
-                        Nome_Ponto = txtNomePonto.Text,
-                        Endereço_Ponto = txtEndereço.Text,
-                        Nome_Medidor = txtNomeMedidor.Text,
-                        Tipo_Medidor = cbxPontoTipo.SelectedItem.ToString()
-                    });
+                    Ponto ponto = new();
+                    ponto.Macro_ID = Convert.ToInt32(cboxPontoMacro.SelectedItem.ToString().Split("-")[0]);
+                    ponto.Nome_Ponto = txtNomePonto.Text;
+                    ponto.Endereço_Ponto = txtEndereço.Text;
+                    ponto.Nome_Medidor = txtNomeMedidor.Text;
+                    ponto.Tipo_Medidor = cbxPontoTipo.Text;
+
+                    Context.Pontos.Add(ponto);
                     Context.SaveChanges();
                 }
+                MessageBox.Show("Novo ponto salvo com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
-            catch(Exception ex)
+            catch
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
 
@@ -60,6 +61,27 @@ namespace Sats.Views
         private void txtNomeMedidor_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Pontos_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new Context())
+                {
+                    var query = context.Macros.Select(s => new { s.ID, s.Nome_Macro }).ToList();
+                    if (query != null)
+                    {
+                        foreach (var item in query)
+                        {
+                            cboxPontoMacro.Items.Add($"{item.ID} - {item.Nome_Macro}");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

@@ -31,15 +31,15 @@ namespace Sats.Views
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeMacro = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnSalvarNovoMacro = new System.Windows.Forms.Button();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 82);
+            this.label1.Location = new System.Drawing.Point(39, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 19);
             this.label1.TabIndex = 0;
@@ -47,39 +47,39 @@ namespace Sats.Views
             // 
             // txtNomeMacro
             // 
-            this.txtNomeMacro.Location = new System.Drawing.Point(74, 78);
+            this.txtNomeMacro.Location = new System.Drawing.Point(101, 112);
             this.txtNomeMacro.Name = "txtNomeMacro";
             this.txtNomeMacro.Size = new System.Drawing.Size(186, 23);
             this.txtNomeMacro.TabIndex = 1;
+            this.txtNomeMacro.TextChanged += new System.EventHandler(this.txtNomeMacro_TextChanged);
             // 
-            // label2
+            // btnSalvarNovoMacro
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 158);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Pontos";
+            this.btnSalvarNovoMacro.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSalvarNovoMacro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvarNovoMacro.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSalvarNovoMacro.Location = new System.Drawing.Point(39, 178);
+            this.btnSalvarNovoMacro.Name = "btnSalvarNovoMacro";
+            this.btnSalvarNovoMacro.Size = new System.Drawing.Size(79, 33);
+            this.btnSalvarNovoMacro.TabIndex = 2;
+            this.btnSalvarNovoMacro.Text = "Salvar";
+            this.btnSalvarNovoMacro.UseVisualStyleBackColor = false;
+            this.btnSalvarNovoMacro.Click += new System.EventHandler(this.btnSalvarNovoMacro_Click);
             // 
-            // comboBox1
+            // mySqlCommand1
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(74, 158);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(186, 23);
-            this.comboBox1.TabIndex = 3;
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
             // 
             // FormNovoMacro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(354, 285);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnSalvarNovoMacro);
             this.Controls.Add(this.txtNomeMacro);
             this.Controls.Add(this.label1);
             this.Name = "FormNovoMacro";
@@ -94,7 +94,7 @@ namespace Sats.Views
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeMacro;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnSalvarNovoMacro;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
     }
 }
