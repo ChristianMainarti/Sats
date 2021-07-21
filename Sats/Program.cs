@@ -18,7 +18,7 @@ namespace Sats
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLeituraBomba());
+            Application.Run(new FormLeituraVazão());
         }
     }
 }

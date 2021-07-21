@@ -41,6 +41,7 @@ namespace Sats.Views
             this.lblTituloLeitura = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalvarLeituraN = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -90,16 +91,16 @@ namespace Sats.Views
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(26, 232);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 19);
+            this.label3.Size = new System.Drawing.Size(74, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Valor";
+            this.label3.Text = "Valor (mA)";
             // 
             // txtDataHoraN
             // 
             this.txtDataHoraN.Location = new System.Drawing.Point(113, 332);
             this.txtDataHoraN.Name = "txtDataHoraN";
             this.txtDataHoraN.Size = new System.Drawing.Size(175, 25);
-            this.txtDataHoraN.TabIndex = 7;
+            this.txtDataHoraN.TabIndex = 7;            
             // 
             // label4
             // 
@@ -133,6 +134,7 @@ namespace Sats.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightBlue;
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cbLeituraNPonto);
             this.panel2.Controls.Add(this.lblLeituraPonto);
             this.panel2.Controls.Add(this.txtDataHoraN);
@@ -157,6 +159,16 @@ namespace Sats.Views
             this.btnSalvarLeituraN.Text = "Salvar";
             this.btnSalvarLeituraN.UseVisualStyleBackColor = false;
             this.btnSalvarLeituraN.Click += new System.EventHandler(this.btnSalvarLeituraN_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(34, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "(de 4 a 20)";
             // 
             // FormLeituraNível
             // 
@@ -195,5 +207,6 @@ namespace Sats.Views
         private System.Windows.Forms.Label lblTituloLeitura;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSalvarLeituraN;
+        private System.Windows.Forms.Label label1;
     }
 }
