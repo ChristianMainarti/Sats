@@ -30,7 +30,7 @@ namespace Sats.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+                try
             {
                 using (var Context = new Context())
                 {
@@ -47,7 +47,7 @@ namespace Sats.Views
                 MessageBox.Show("Novo ponto salvo com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
-            catch
+            catch   
             {
                 MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }

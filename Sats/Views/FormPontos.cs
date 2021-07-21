@@ -14,6 +14,7 @@ namespace Sats
 {
     public partial class FormPontos : Form
     {
+
         public FormPontos()
         {
             InitializeComponent();
@@ -25,7 +26,10 @@ namespace Sats
             {
                 using (var context = new Context())
                 {
-                    var query = context.Pontos.Select(s => new {s.Nome_Ponto, s.Macro_ID, s.Tipo_Medidor}).ToList();
+                    var query = context.Pontos.Select(s => new {
+                        s.Nome_Ponto, 
+                        s.Macro_ID, 
+                        s.Tipo_Medidor}).ToList();
                     if (query != null)
                     {
                         foreach (var item in query)

@@ -39,5 +39,16 @@ namespace Sats
             FormPontos form = new FormPontos();
             form.Show();
         }
+
+        private void vazãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bombaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLeituraBomba form = new();
+            form.Show();
+        }
     }
 }

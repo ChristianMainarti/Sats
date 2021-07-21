@@ -1,3 +1,4 @@
+using Sats.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Sats
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPontos());
+            Application.Run(new FormLeituraBomba());
         }
     }
 }

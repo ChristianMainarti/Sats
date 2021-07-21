@@ -31,13 +31,16 @@ namespace Sats
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.macrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.leiturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarMacroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisarMacroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarPontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisarPontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leiturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarLeituraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vazãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bombaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nivelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisarLeituraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +66,19 @@ namespace Sats
             this.macrosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.macrosToolStripMenuItem.Text = "Macros";
             // 
+            // cadastrarMacroToolStripMenuItem
+            // 
+            this.cadastrarMacroToolStripMenuItem.Name = "cadastrarMacroToolStripMenuItem";
+            this.cadastrarMacroToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.cadastrarMacroToolStripMenuItem.Text = "Cadastrar Macro";
+            this.cadastrarMacroToolStripMenuItem.Click += new System.EventHandler(this.cadastrarMacroToolStripMenuItem_Click);
+            // 
+            // pesquisarMacroToolStripMenuItem
+            // 
+            this.pesquisarMacroToolStripMenuItem.Name = "pesquisarMacroToolStripMenuItem";
+            this.pesquisarMacroToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.pesquisarMacroToolStripMenuItem.Text = "Pesquisar Macro";
+            // 
             // pontosToolStripMenuItem
             // 
             this.pontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -72,6 +88,19 @@ namespace Sats
             this.pontosToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.pontosToolStripMenuItem.Text = "Pontos";
             this.pontosToolStripMenuItem.Click += new System.EventHandler(this.pontosToolStripMenuItem_Click);
+            // 
+            // cadastrarPontoToolStripMenuItem
+            // 
+            this.cadastrarPontoToolStripMenuItem.Name = "cadastrarPontoToolStripMenuItem";
+            this.cadastrarPontoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cadastrarPontoToolStripMenuItem.Text = "Cadastrar Ponto";
+            this.cadastrarPontoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarPontoToolStripMenuItem_Click);
+            // 
+            // pesquisarPontoToolStripMenuItem
+            // 
+            this.pesquisarPontoToolStripMenuItem.Name = "pesquisarPontoToolStripMenuItem";
+            this.pesquisarPontoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.pesquisarPontoToolStripMenuItem.Text = "Pesquisar Ponto";
             // 
             // leiturasToolStripMenuItem
             // 
@@ -83,37 +112,35 @@ namespace Sats
             this.leiturasToolStripMenuItem.Text = "Leituras";
             this.leiturasToolStripMenuItem.Click += new System.EventHandler(this.leiturasToolStripMenuItem_Click);
             // 
-            // cadastrarMacroToolStripMenuItem
-            // 
-            this.cadastrarMacroToolStripMenuItem.Name = "cadastrarMacroToolStripMenuItem";
-            this.cadastrarMacroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarMacroToolStripMenuItem.Text = "Cadastrar Macro";
-            this.cadastrarMacroToolStripMenuItem.Click += new System.EventHandler(this.cadastrarMacroToolStripMenuItem_Click);
-            // 
-            // pesquisarMacroToolStripMenuItem
-            // 
-            this.pesquisarMacroToolStripMenuItem.Name = "pesquisarMacroToolStripMenuItem";
-            this.pesquisarMacroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pesquisarMacroToolStripMenuItem.Text = "Pesquisar Macro";
-            // 
-            // cadastrarPontoToolStripMenuItem
-            // 
-            this.cadastrarPontoToolStripMenuItem.Name = "cadastrarPontoToolStripMenuItem";
-            this.cadastrarPontoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarPontoToolStripMenuItem.Text = "Cadastrar Ponto";
-            this.cadastrarPontoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarPontoToolStripMenuItem_Click);
-            // 
-            // pesquisarPontoToolStripMenuItem
-            // 
-            this.pesquisarPontoToolStripMenuItem.Name = "pesquisarPontoToolStripMenuItem";
-            this.pesquisarPontoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pesquisarPontoToolStripMenuItem.Text = "Pesquisar Ponto";
-            // 
             // cadastrarLeituraToolStripMenuItem
             // 
+            this.cadastrarLeituraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vazãoToolStripMenuItem,
+            this.bombaToolStripMenuItem,
+            this.nivelToolStripMenuItem});
             this.cadastrarLeituraToolStripMenuItem.Name = "cadastrarLeituraToolStripMenuItem";
             this.cadastrarLeituraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarLeituraToolStripMenuItem.Text = "Cadastrar Leitura";
+            // 
+            // vazãoToolStripMenuItem
+            // 
+            this.vazãoToolStripMenuItem.Name = "vazãoToolStripMenuItem";
+            this.vazãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vazãoToolStripMenuItem.Text = "Vazão";
+            this.vazãoToolStripMenuItem.Click += new System.EventHandler(this.vazãoToolStripMenuItem_Click);
+            // 
+            // bombaToolStripMenuItem
+            // 
+            this.bombaToolStripMenuItem.Name = "bombaToolStripMenuItem";
+            this.bombaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bombaToolStripMenuItem.Text = "Bomba";
+            this.bombaToolStripMenuItem.Click += new System.EventHandler(this.bombaToolStripMenuItem_Click);
+            // 
+            // nivelToolStripMenuItem
+            // 
+            this.nivelToolStripMenuItem.Name = "nivelToolStripMenuItem";
+            this.nivelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nivelToolStripMenuItem.Text = "Nivel";
             // 
             // pesquisarLeituraToolStripMenuItem
             // 
@@ -150,5 +177,8 @@ namespace Sats
         private System.Windows.Forms.ToolStripMenuItem leiturasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarLeituraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pesquisarLeituraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vazãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bombaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nivelToolStripMenuItem;
     }
 }
