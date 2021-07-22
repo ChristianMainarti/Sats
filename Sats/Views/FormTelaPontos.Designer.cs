@@ -42,6 +42,7 @@ namespace Sats
             this.btnAttPonto = new System.Windows.Forms.Button();
             this.listbPontosPontos = new System.Windows.Forms.CheckedListBox();
             this.btnApagarPonto = new System.Windows.Forms.Button();
+            this.btnNovaLeitura = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -168,12 +169,26 @@ namespace Sats
             this.btnApagarPonto.UseVisualStyleBackColor = false;
             this.btnApagarPonto.Click += new System.EventHandler(this.btnApagarPonto_Click);
             // 
+            // btnNovaLeitura
+            // 
+            this.btnNovaLeitura.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNovaLeitura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovaLeitura.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNovaLeitura.Location = new System.Drawing.Point(192, 437);
+            this.btnNovaLeitura.Name = "btnNovaLeitura";
+            this.btnNovaLeitura.Size = new System.Drawing.Size(120, 50);
+            this.btnNovaLeitura.TabIndex = 14;
+            this.btnNovaLeitura.Text = "Nova Leitura";
+            this.btnNovaLeitura.UseVisualStyleBackColor = false;
+            this.btnNovaLeitura.Click += new System.EventHandler(this.btnNovaLeitura_Click);
+            // 
             // FormTelaPontos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(659, 499);
+            this.Controls.Add(this.btnNovaLeitura);
             this.Controls.Add(this.listbPontosPontos);
             this.Controls.Add(this.btnApagarPonto);
             this.Controls.Add(this.btnAttPonto);
@@ -206,6 +221,7 @@ namespace Sats
         private System.Windows.Forms.Button btnAttPonto;
         private System.Windows.Forms.CheckedListBox listbPontosPontos;
         private System.Windows.Forms.Button btnApagarPonto;
+        private System.Windows.Forms.Button btnNovaLeitura;
     }
 }
 

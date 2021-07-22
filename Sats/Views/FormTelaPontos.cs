@@ -122,5 +122,42 @@ namespace Sats
                 MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
+        private void SelecionaTipoLeitura(string tipo)
+        {
+            try
+            {
+                using (var context = new Context())
+                {
+                    var query = context.Pontos.Where(s => s.Tipo_Medidor == tipo).First();
+                    if (query!=null )
+                    {
+                        if (tipo == "Vazão")
+                        {
+                            FormLeituraVazão form = new();
+                            form.Show();
+                        }
+                        else if (tipo == "Bomba")
+                        {
+                            FormLeituraBomba form = new();
+                            form.Show();
+                        }
+                        else
+                        {
+                            FormLeituraNível form = new();
+                            form.Show();
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void btnNovaLeitura_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
