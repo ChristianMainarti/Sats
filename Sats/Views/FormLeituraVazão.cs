@@ -47,23 +47,23 @@ namespace Sats.Views
 
         private void btnSalvarLeituraV_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 using (var context = new Context())
                 {
                     LeituraVazão leituraVazão = new();
                     leituraVazão.Ponto_Leitura = Convert.ToInt32(cbLeituraVPonto.SelectedItem.ToString().Split(" - ")[0]);
                     leituraVazão.Leiturista = txtLeituristaV.Text;
-                    leituraVazão.Valor_Leitura = float.Parse(txtLeituristaV.Text);
-                    leituraVazão.Data_Hora = Convert.ToDateTime(txtLeituristaV.ToString());
+                    leituraVazão.Valor_Leitura = float.Parse(txtLeituraVazão.Text);
+                    leituraVazão.Data_Hora = Convert.ToDateTime(mtxDataHoraV.Text);
 
                 context.LeituraVazãos.Add(leituraVazão);
                 context.SaveChanges();
                 }
-            //}
-            //catch (Exception)
-            //{
-            //}
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Sats.Views
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.mtxDataHoraV = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtLeituraVazão = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtLeituristaV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@ namespace Sats.Views
             this.panel2.BackColor = System.Drawing.Color.LightBlue;
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.mtxDataHoraV);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtLeituraVazão);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.txtLeituristaV);
             this.panel2.Controls.Add(this.label2);
@@ -90,12 +90,12 @@ namespace Sats.Views
             this.mtxDataHoraV.TabIndex = 6;
             this.mtxDataHoraV.ValidatingType = typeof(System.DateTime);
             // 
-            // textBox2
+            // txtLeituraVazão
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 215);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(158, 25);
-            this.textBox2.TabIndex = 5;
+            this.txtLeituraVazão.Location = new System.Drawing.Point(112, 215);
+            this.txtLeituraVazão.Name = "txtLeituraVazão";
+            this.txtLeituraVazão.Size = new System.Drawing.Size(158, 25);
+            this.txtLeituraVazão.TabIndex = 5;
             // 
             // label3
             // 
@@ -193,7 +193,7 @@ namespace Sats.Views
         private System.Windows.Forms.ComboBox cbLeituraVPonto;
         private System.Windows.Forms.TextBox txtLeituristaV;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtLeituraVazão;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mtxDataHoraV;

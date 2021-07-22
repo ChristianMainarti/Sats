@@ -41,14 +41,14 @@ namespace Sats.Views
 
         private void btnSalvarLeituraN_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 using (var context = new Context())
                 {
                     LeituraNível leituraNível = new();
                     leituraNível.Ponto_Leitura = Convert.ToInt32(cbLeituraNPonto.SelectedItem.ToString().Split(" - ")[0]);
                     leituraNível.Leiturista = txtLeituristaN.Text;
-                    leituraNível.Valor_Leitura = float.Parse(txtValorN.Text);
+                    leituraNível.Valor_Leitura = float.Parse(txtValorLeituraN.Text);
                     leituraNível.Data_Hora = Convert.ToDateTime(txtDataHoraN.ToString());
 
                     context.LeituraNívels.Add(leituraNível);
@@ -56,11 +56,11 @@ namespace Sats.Views
                 }
                 MessageBox.Show("Nova leitura salva com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            //}
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
         }
     }
 }

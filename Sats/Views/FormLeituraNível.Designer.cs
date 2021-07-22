@@ -33,15 +33,15 @@ namespace Sats.Views
             this.cbLeituraNPonto = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtLeituristaN = new System.Windows.Forms.TextBox();
-            this.txtValorN = new System.Windows.Forms.TextBox();
+            this.txtValorLeituraN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDataHoraN = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTituloLeitura = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSalvarLeituraN = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSalvarLeituraN = new System.Windows.Forms.Button();
+            this.txtDataHoraN = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -79,12 +79,12 @@ namespace Sats.Views
             this.txtLeituristaN.Size = new System.Drawing.Size(175, 25);
             this.txtLeituristaN.TabIndex = 3;
             // 
-            // txtValorN
+            // txtValorLeituraN
             // 
-            this.txtValorN.Location = new System.Drawing.Point(113, 231);
-            this.txtValorN.Name = "txtValorN";
-            this.txtValorN.Size = new System.Drawing.Size(175, 25);
-            this.txtValorN.TabIndex = 5;
+            this.txtValorLeituraN.Location = new System.Drawing.Point(113, 231);
+            this.txtValorLeituraN.Name = "txtValorLeituraN";
+            this.txtValorLeituraN.Size = new System.Drawing.Size(175, 25);
+            this.txtValorLeituraN.TabIndex = 5;
             // 
             // label3
             // 
@@ -94,13 +94,6 @@ namespace Sats.Views
             this.label3.Size = new System.Drawing.Size(74, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "Valor (mA)";
-            // 
-            // txtDataHoraN
-            // 
-            this.txtDataHoraN.Location = new System.Drawing.Point(113, 332);
-            this.txtDataHoraN.Name = "txtDataHoraN";
-            this.txtDataHoraN.Size = new System.Drawing.Size(175, 25);
-            this.txtDataHoraN.TabIndex = 7;            
             // 
             // label4
             // 
@@ -134,19 +127,29 @@ namespace Sats.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightBlue;
+            this.panel2.Controls.Add(this.txtDataHoraN);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cbLeituraNPonto);
             this.panel2.Controls.Add(this.lblLeituraPonto);
-            this.panel2.Controls.Add(this.txtDataHoraN);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtLeituristaN);
-            this.panel2.Controls.Add(this.txtValorN);
+            this.panel2.Controls.Add(this.txtValorLeituraN);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(34, 169);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(373, 378);
             this.panel2.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(34, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "(de 4 a 20)";
             // 
             // btnSalvarLeituraN
             // 
@@ -160,15 +163,14 @@ namespace Sats.Views
             this.btnSalvarLeituraN.UseVisualStyleBackColor = false;
             this.btnSalvarLeituraN.Click += new System.EventHandler(this.btnSalvarLeituraN_Click);
             // 
-            // label1
+            // txtDataHoraN
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(34, 251);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 16);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "(de 4 a 20)";
+            this.txtDataHoraN.Location = new System.Drawing.Point(113, 333);
+            this.txtDataHoraN.Mask = "00/00/0000 90:00";
+            this.txtDataHoraN.Name = "txtDataHoraN";
+            this.txtDataHoraN.Size = new System.Drawing.Size(175, 25);
+            this.txtDataHoraN.TabIndex = 9;
+            this.txtDataHoraN.ValidatingType = typeof(System.DateTime);
             // 
             // FormLeituraNível
             // 
@@ -199,14 +201,14 @@ namespace Sats.Views
         private System.Windows.Forms.ComboBox cbLeituraNPonto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtLeituristaN;
-        private System.Windows.Forms.TextBox txtValorN;
+        private System.Windows.Forms.TextBox txtValorLeituraN;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDataHoraN;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTituloLeitura;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSalvarLeituraN;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox txtDataHoraN;
     }
 }
