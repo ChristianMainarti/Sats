@@ -25,29 +25,36 @@ namespace Sats
 
         private void cadastrarMacroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormMacro form = new FormMacro();
+            FormMacro form = new();
             form.Show();
         }
 
         private void pontosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormTelaPontos form = new ();
+            form.Show();
         }
 
         private void cadastrarPontoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormTelaPontos form = new FormTelaPontos();
+            FormNovoPonto form = new();
             form.Show();
         }
 
         private void vazãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            FormLeituraVazão form = new();
+            form.Show();
         }
 
         private void bombaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormLeituraBomba form = new();
+            form.Show();
+        }
+        private void nivelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLeituraNível form = new();
             form.Show();
         }
     }

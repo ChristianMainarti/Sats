@@ -41,6 +41,7 @@ namespace Sats
             this.label2 = new System.Windows.Forms.Label();
             this.btnAttPonto = new System.Windows.Forms.Button();
             this.listbPontosPontos = new System.Windows.Forms.CheckedListBox();
+            this.btnApagarPonto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +55,6 @@ namespace Sats
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(659, 128);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lblTopTelaPontos
             // 
@@ -72,7 +72,7 @@ namespace Sats
             this.btnNovoPonto.BackColor = System.Drawing.Color.LightBlue;
             this.btnNovoPonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovoPonto.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNovoPonto.Location = new System.Drawing.Point(12, 178);
+            this.btnNovoPonto.Location = new System.Drawing.Point(12, 157);
             this.btnNovoPonto.Name = "btnNovoPonto";
             this.btnNovoPonto.Size = new System.Drawing.Size(120, 50);
             this.btnNovoPonto.TabIndex = 3;
@@ -139,7 +139,7 @@ namespace Sats
             this.btnAttPonto.BackColor = System.Drawing.Color.LightBlue;
             this.btnAttPonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAttPonto.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAttPonto.Location = new System.Drawing.Point(12, 422);
+            this.btnAttPonto.Location = new System.Drawing.Point(12, 235);
             this.btnAttPonto.Name = "btnAttPonto";
             this.btnAttPonto.Size = new System.Drawing.Size(120, 50);
             this.btnAttPonto.TabIndex = 12;
@@ -150,10 +150,23 @@ namespace Sats
             // listbPontosPontos
             // 
             this.listbPontosPontos.FormattingEnabled = true;
-            this.listbPontosPontos.Location = new System.Drawing.Point(12, 287);
+            this.listbPontosPontos.Location = new System.Drawing.Point(12, 375);
             this.listbPontosPontos.Name = "listbPontosPontos";
-            this.listbPontosPontos.Size = new System.Drawing.Size(120, 94);
+            this.listbPontosPontos.Size = new System.Drawing.Size(120, 112);
             this.listbPontosPontos.TabIndex = 13;
+            // 
+            // btnApagarPonto
+            // 
+            this.btnApagarPonto.BackColor = System.Drawing.Color.LightBlue;
+            this.btnApagarPonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApagarPonto.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnApagarPonto.Location = new System.Drawing.Point(12, 313);
+            this.btnApagarPonto.Name = "btnApagarPonto";
+            this.btnApagarPonto.Size = new System.Drawing.Size(120, 50);
+            this.btnApagarPonto.TabIndex = 13;
+            this.btnApagarPonto.Text = "Apagar Ponto";
+            this.btnApagarPonto.UseVisualStyleBackColor = false;
+            this.btnApagarPonto.Click += new System.EventHandler(this.btnApagarPonto_Click);
             // 
             // FormTelaPontos
             // 
@@ -162,6 +175,7 @@ namespace Sats
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(659, 499);
             this.Controls.Add(this.listbPontosPontos);
+            this.Controls.Add(this.btnApagarPonto);
             this.Controls.Add(this.btnAttPonto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
@@ -191,6 +205,7 @@ namespace Sats
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAttPonto;
         private System.Windows.Forms.CheckedListBox listbPontosPontos;
+        private System.Windows.Forms.Button btnApagarPonto;
     }
 }
 

@@ -84,7 +84,6 @@ namespace Sats.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(820, 231);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label5
             // 
@@ -102,7 +101,6 @@ namespace Sats.Views
             this.txtNomeMedidor.Name = "txtNomeMedidor";
             this.txtNomeMedidor.Size = new System.Drawing.Size(230, 23);
             this.txtNomeMedidor.TabIndex = 8;
-            this.txtNomeMedidor.TextChanged += new System.EventHandler(this.txtNomeMedidor_TextChanged);
             // 
             // cbxPontoTipo
             // 
@@ -115,7 +113,6 @@ namespace Sats.Views
             this.cbxPontoTipo.Name = "cbxPontoTipo";
             this.cbxPontoTipo.Size = new System.Drawing.Size(230, 23);
             this.cbxPontoTipo.TabIndex = 7;
-            this.cbxPontoTipo.SelectedIndexChanged += new System.EventHandler(this.cbxPontoTipo_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -160,7 +157,6 @@ namespace Sats.Views
             this.txtNomePonto.Name = "txtNomePonto";
             this.txtNomePonto.Size = new System.Drawing.Size(230, 23);
             this.txtNomePonto.TabIndex = 2;
-            this.txtNomePonto.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cboxPontoMacro
             // 
@@ -191,7 +187,7 @@ namespace Sats.Views
             this.btnSalvarNovoPonto.TabIndex = 2;
             this.btnSalvarNovoPonto.Text = "Salvar";
             this.btnSalvarNovoPonto.UseVisualStyleBackColor = false;
-            this.btnSalvarNovoPonto.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalvarNovoPonto.Click += new System.EventHandler(this.btnSalvarNovoPonto_Click);
             // 
             // FormNovoPonto
             // 

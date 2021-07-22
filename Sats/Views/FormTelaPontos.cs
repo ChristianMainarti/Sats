@@ -19,8 +19,7 @@ namespace Sats
             InitializeComponent();
         }
 
-
-        private void FormPonto_Load(object sender, EventArgs e)
+        private void CarregaDados()
         {
             try
             {
@@ -28,9 +27,10 @@ namespace Sats
                 {
                     var query = context.Pontos.Select(s => new {
                         s.ID_Ponto,
-                        s.Nome_Ponto, 
-                        s.Macro_ID, 
-                        s.Tipo_Medidor}).ToList();
+                        s.Nome_Ponto,
+                        s.Macro_ID,
+                        s.Tipo_Medidor
+                    }).ToList();
                     if (query != null)
                     {
                         foreach (var item in query)
@@ -41,24 +41,47 @@ namespace Sats
                             listview[1] = item.Macro_ID.ToString();
                             listview[2] = item.Tipo_Medidor;
                             lvPontosPontos.Items.Add(new ListViewItem(listview));
-                        }                                               
+                        }
                     }
                 }
             }
-            catch (Exception)   
+            catch (Exception)
             {
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void FormPonto_Load(object sender, EventArgs e)
         {
-
+            CarregaDados();
         }
-
+        public void ApagaPonto(int id)
+        {
+            try
+            {
+                using (var context = new Context())
+                {
+                    var query = context.Pontos.Where(s => s.ID_Ponto == id).First();
+                    if (query != null)
+                    {
+                        context.Pontos.Remove(query);
+                        context.SaveChanges();
+                        listbPontosPontos.Items.Clear();
+                        lvPontosPontos.Items.Clear();
+                        CarregaDados();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
         private void btnNovoPonto_Click(object sender, EventArgs e)
         {
             FormNovoPonto form = new();
             form.Show();
+            listbPontosPontos.Items.Clear();
+            lvPontosPontos.Items.Clear();
+            CarregaDados();
         }
 
         private void lbPontosPontos_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,11 +92,35 @@ namespace Sats
 
         private void btnAttPonto_Click(object sender, EventArgs e)
         {
-            using var context = new Context();
-            int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
+            try
+            {
+                using var context = new Context();
+                {
+                    int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
+                    FormNovoPonto form = new(id);
+                    form.Show();
+                }
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }    
+        }
 
-            FormNovoPonto form = new(id);
-            form.Show();
+        private void btnApagarPonto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using var context = new Context();
+                {
+                    int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
+                    ApagaPonto(id);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
         }
     }
 }

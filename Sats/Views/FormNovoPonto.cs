@@ -18,48 +18,55 @@ namespace Sats.Views
         {
             InitializeComponent();
         }
-
         public FormNovoPonto(int id)
         {
             InitializeComponent();
             labPontoPonto.Text = "Atualizar Ponto";
-            BuscaDados(id);
-        }
-
-        public void BuscaDados(int id)
-        {            
-            using (var context = new Context())
+            BuscaPonto(id);
+        }        
+        public void BuscaPonto(int id)
+        {
+            try
             {
-                var query = context.Pontos.Where(s => s.ID_Ponto == id).Select(s=> new {
-                    s.ID_Ponto,
-                    s.Endereço_Ponto,
-                    s.Nome_Ponto,
-                    s.Tipo_Medidor,
-                    s.Nome_Medidor,
-                    s.Macro,
-                }).First();
-                if (query!= null)
+                using (var context = new Context())
                 {
-                    txtNomePonto.Text = query.Nome_Ponto;
-                    txtEndereço.Text = query.Endereço_Ponto;
-                    txtNomeMedidor.Text = query.Nome_Medidor;
-                    cboxPontoMacro.Text = $"{query.Macro.ID} - {query.Macro.Nome_Macro}";
-                    cbxPontoTipo.Text = query.Tipo_Medidor;
+                    var query = context.Pontos.Where(s => s.ID_Ponto == id).Select(s => new {
+                        s.ID_Ponto,
+                        s.Endereço_Ponto,
+                        s.Nome_Ponto,
+                        s.Tipo_Medidor,
+                        s.Nome_Medidor,
+                        s.Macro,
+                    }).First();
+                    if (query != null)
+                    {
+                        txtNomePonto.Text = query.Nome_Ponto;
+                        txtEndereço.Text = query.Endereço_Ponto;
+                        txtNomeMedidor.Text = query.Nome_Medidor;
+                        cboxPontoMacro.Text = $"{query.Macro.ID} - {query.Macro.Nome_Macro}";
+                        cbxPontoTipo.Text = query.Tipo_Medidor;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ponto Não encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    Ponto ponto = new();
+                    ponto.Macro_ID = Convert.ToInt32(cboxPontoMacro.SelectedItem.ToString().Split("-")[0]);
+                    ponto.Nome_Ponto = txtNomePonto.Text;
+                    ponto.Endereço_Ponto = txtEndereço.Text;
+                    ponto.Nome_Medidor = txtNomeMedidor.Text;
+                    ponto.Tipo_Medidor = cbxPontoTipo.Text;
+                    context.Pontos.Add(ponto);
+                    context.SaveChanges();
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {          
-             
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSalvarNovoPonto_Click(object sender, EventArgs e)
         {
                 try
             {
@@ -83,17 +90,6 @@ namespace Sats.Views
                 MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
-
-        private void cbxPontoTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNomeMedidor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Pontos_Load(object sender, EventArgs e)
         {
             try

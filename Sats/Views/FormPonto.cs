@@ -17,28 +17,43 @@ namespace Sats.Views
         {
             InitializeComponent();
         }
+        private void CarregaDados()
+        {
+            try
+            {
+                using (var context = new Context())
+                {
+                    var query = context.Leituras.Select(s => new {
+                    s.Ponto_Leitura,
+                    s.Leiturista,
+                    s.Data_Hora,
+                    s.Valor_Leitura
+                    }).ToList();
+                    if (query != null)
+                    {
+                        foreach (var item in query)
+                        {
+                            clbLeituraPontos.Items.Add($"{item.Ponto_Leitura}");
+                            string[] listview = new string[4];
+                            listview[0] = item.Ponto_Leitura.ToString();
+                            listview[1] = item.Leiturista;
+                            listview[2] = item.Data_Hora.ToString();
+                            listview[3] = item.Valor_Leitura.ToString();
+                            lvPontoLeituras.Items.Add(new ListViewItem(listview));
+                        }
+                    }
+                }                
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
         private void FormPonto_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    using (var context = new Context())
-            //    {
-                    
-            //    }
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
+            CarregaDados();
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEditarPonto_Click(object sender, EventArgs e)
         {
            
