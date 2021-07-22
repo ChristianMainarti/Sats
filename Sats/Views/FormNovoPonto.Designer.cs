@@ -30,7 +30,7 @@ namespace Sats.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labNovoPontoPonto = new System.Windows.Forms.Label();
+            this.labPontoPonto = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNomeMedidor = new System.Windows.Forms.TextBox();
@@ -50,22 +50,22 @@ namespace Sats.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.labNovoPontoPonto);
+            this.panel1.Controls.Add(this.labPontoPonto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(844, 119);
             this.panel1.TabIndex = 0;
             // 
-            // labNovoPontoPonto
+            // labPontoPonto
             // 
-            this.labNovoPontoPonto.AutoSize = true;
-            this.labNovoPontoPonto.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labNovoPontoPonto.Location = new System.Drawing.Point(34, 48);
-            this.labNovoPontoPonto.Name = "labNovoPontoPonto";
-            this.labNovoPontoPonto.Size = new System.Drawing.Size(125, 26);
-            this.labNovoPontoPonto.TabIndex = 0;
-            this.labNovoPontoPonto.Text = "Novo Ponto";
+            this.labPontoPonto.AutoSize = true;
+            this.labPontoPonto.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labPontoPonto.Location = new System.Drawing.Point(34, 48);
+            this.labPontoPonto.Name = "labPontoPonto";
+            this.labPontoPonto.Size = new System.Drawing.Size(125, 26);
+            this.labPontoPonto.TabIndex = 0;
+            this.labPontoPonto.Text = "Novo Ponto";
             // 
             // panel2
             // 
@@ -216,7 +216,7 @@ namespace Sats.Views
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labNovoPontoPonto;
+        private System.Windows.Forms.Label labPontoPonto;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEndereço;

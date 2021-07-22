@@ -36,7 +36,7 @@ namespace Sats
 
         private void cadastrarPontoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPontos form = new FormPontos();
+            FormTelaPontos form = new FormTelaPontos();
             form.Show();
         }
 

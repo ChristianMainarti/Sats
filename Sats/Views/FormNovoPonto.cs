@@ -13,9 +13,40 @@ namespace Sats.Views
 {
     public partial class FormNovoPonto : Form
     {
+
         public FormNovoPonto()
         {
             InitializeComponent();
+        }
+
+        public FormNovoPonto(int id)
+        {
+            InitializeComponent();
+            labPontoPonto.Text = "Atualizar Ponto";
+            BuscaDados(id);
+        }
+
+        public void BuscaDados(int id)
+        {            
+            using (var context = new Context())
+            {
+                var query = context.Pontos.Where(s => s.ID_Ponto == id).Select(s=> new {
+                    s.ID_Ponto,
+                    s.Endereço_Ponto,
+                    s.Nome_Ponto,
+                    s.Tipo_Medidor,
+                    s.Nome_Medidor,
+                    s.Macro,
+                }).First();
+                if (query!= null)
+                {
+                    txtNomePonto.Text = query.Nome_Ponto;
+                    txtEndereço.Text = query.Endereço_Ponto;
+                    txtNomeMedidor.Text = query.Nome_Medidor;
+                    cboxPontoMacro.Text = $"{query.Macro.ID} - {query.Macro.Nome_Macro}";
+                    cbxPontoTipo.Text = query.Tipo_Medidor;
+                }
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

@@ -1,7 +1,7 @@
 ﻿
 namespace Sats
 {
-    partial class FormPontos
+    partial class FormTelaPontos
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace Sats
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTopTelaPontos = new System.Windows.Forms.Label();
             this.btnNovoPonto = new System.Windows.Forms.Button();
@@ -38,9 +38,9 @@ namespace Sats
             this.col_Nome = new System.Windows.Forms.ColumnHeader();
             this.col_Macro = new System.Windows.Forms.ColumnHeader();
             this.col_Tipo = new System.Windows.Forms.ColumnHeader();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbPontosPontos = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnAttPonto = new System.Windows.Forms.Button();
+            this.listbPontosPontos = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +101,7 @@ namespace Sats
             this.lvPontosPontos.GridLines = true;
             this.lvPontosPontos.HideSelection = false;
             this.lvPontosPontos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.lvPontosPontos.Location = new System.Drawing.Point(0, 0);
             this.lvPontosPontos.Name = "lvPontosPontos";
             this.lvPontosPontos.Size = new System.Drawing.Size(455, 240);
@@ -124,26 +124,6 @@ namespace Sats
             this.col_Tipo.Text = "Tipo";
             this.col_Tipo.Width = 150;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 266);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Pontos";
-            // 
-            // lbPontosPontos
-            // 
-            this.lbPontosPontos.FormattingEnabled = true;
-            this.lbPontosPontos.ItemHeight = 17;
-            this.lbPontosPontos.Location = new System.Drawing.Point(12, 286);
-            this.lbPontosPontos.Name = "lbPontosPontos";
-            this.lbPontosPontos.Size = new System.Drawing.Size(120, 89);
-            this.lbPontosPontos.TabIndex = 10;
-            this.lbPontosPontos.SelectedIndexChanged += new System.EventHandler(this.lbPontosPontos_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -154,20 +134,41 @@ namespace Sats
             this.label2.TabIndex = 11;
             this.label2.Text = "Ultimos Pontos Cadastrados";
             // 
-            // FormPontos
+            // btnAttPonto
+            // 
+            this.btnAttPonto.BackColor = System.Drawing.Color.LightBlue;
+            this.btnAttPonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAttPonto.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAttPonto.Location = new System.Drawing.Point(12, 422);
+            this.btnAttPonto.Name = "btnAttPonto";
+            this.btnAttPonto.Size = new System.Drawing.Size(120, 50);
+            this.btnAttPonto.TabIndex = 12;
+            this.btnAttPonto.Text = "Atualizar Ponto";
+            this.btnAttPonto.UseVisualStyleBackColor = false;
+            this.btnAttPonto.Click += new System.EventHandler(this.btnAttPonto_Click);
+            // 
+            // listbPontosPontos
+            // 
+            this.listbPontosPontos.FormattingEnabled = true;
+            this.listbPontosPontos.Location = new System.Drawing.Point(12, 287);
+            this.listbPontosPontos.Name = "listbPontosPontos";
+            this.listbPontosPontos.Size = new System.Drawing.Size(120, 94);
+            this.listbPontosPontos.TabIndex = 13;
+            // 
+            // FormTelaPontos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(659, 499);
+            this.Controls.Add(this.listbPontosPontos);
+            this.Controls.Add(this.btnAttPonto);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbPontosPontos);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnNovoPonto);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Name = "FormPontos";
+            this.Name = "FormTelaPontos";
             this.Load += new System.EventHandler(this.FormPonto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -183,13 +184,13 @@ namespace Sats
         private System.Windows.Forms.Label lblTopTelaPontos;
         private System.Windows.Forms.Button btnNovoPonto;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbPontosPontos;
         private System.Windows.Forms.ListView lvPontosPontos;
         private System.Windows.Forms.ColumnHeader col_Nome;
         private System.Windows.Forms.ColumnHeader col_Macro;
         private System.Windows.Forms.ColumnHeader col_Tipo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAttPonto;
+        private System.Windows.Forms.CheckedListBox listbPontosPontos;
     }
 }
 

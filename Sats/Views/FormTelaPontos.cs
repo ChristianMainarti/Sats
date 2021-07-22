@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Sats
 {
-    public partial class FormPontos : Form
+    public partial class FormTelaPontos : Form
     {
-
-        public FormPontos()
+        public FormTelaPontos()
         {
             InitializeComponent();
         }
+
 
         private void FormPonto_Load(object sender, EventArgs e)
         {
@@ -27,6 +27,7 @@ namespace Sats
                 using (var context = new Context())
                 {
                     var query = context.Pontos.Select(s => new {
+                        s.ID_Ponto,
                         s.Nome_Ponto, 
                         s.Macro_ID, 
                         s.Tipo_Medidor}).ToList();
@@ -34,7 +35,7 @@ namespace Sats
                     {
                         foreach (var item in query)
                         {
-                            lbPontosPontos.Items.Add($"{item.Nome_Ponto}");
+                            listbPontosPontos.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
                             string[] listview = new string[3];
                             listview[0] = item.Nome_Ponto;
                             listview[1] = item.Macro_ID.ToString();
@@ -62,13 +63,17 @@ namespace Sats
 
         private void lbPontosPontos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string pegaItem = lbPontosPontos.SelectedItem.ToString();
+            string pegaItem = listbPontosPontos.SelectedItem.ToString();   
+
         }
 
-        private void lvPontosPontos_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAttPonto_Click(object sender, EventArgs e)
         {
+            using var context = new Context();
+            int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
 
+            FormNovoPonto form = new(id);
+            form.Show();
         }
-
     }
 }
