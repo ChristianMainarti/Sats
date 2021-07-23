@@ -33,12 +33,12 @@ namespace Sats
             this.macrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarMacroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarPontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leiturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarLeituraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vazãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bombaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nivelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarPontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,11 +61,12 @@ namespace Sats
             this.macrosToolStripMenuItem.Name = "macrosToolStripMenuItem";
             this.macrosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.macrosToolStripMenuItem.Text = "Macros";
+            this.macrosToolStripMenuItem.Click += new System.EventHandler(this.macrosToolStripMenuItem_Click);
             // 
             // cadastrarMacroToolStripMenuItem
             // 
             this.cadastrarMacroToolStripMenuItem.Name = "cadastrarMacroToolStripMenuItem";
-            this.cadastrarMacroToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.cadastrarMacroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarMacroToolStripMenuItem.Text = "Cadastrar Macro";
             this.cadastrarMacroToolStripMenuItem.Click += new System.EventHandler(this.cadastrarMacroToolStripMenuItem_Click);
             // 
@@ -77,6 +78,13 @@ namespace Sats
             this.pontosToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.pontosToolStripMenuItem.Text = "Pontos";
             this.pontosToolStripMenuItem.Click += new System.EventHandler(this.pontosToolStripMenuItem_Click);
+            // 
+            // cadastrarPontoToolStripMenuItem
+            // 
+            this.cadastrarPontoToolStripMenuItem.Name = "cadastrarPontoToolStripMenuItem";
+            this.cadastrarPontoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cadastrarPontoToolStripMenuItem.Text = "Cadastrar Ponto";
+            this.cadastrarPontoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarPontoToolStripMenuItem_Click);
             // 
             // leiturasToolStripMenuItem
             // 
@@ -94,7 +102,7 @@ namespace Sats
             this.bombaToolStripMenuItem,
             this.nivelToolStripMenuItem});
             this.cadastrarLeituraToolStripMenuItem.Name = "cadastrarLeituraToolStripMenuItem";
-            this.cadastrarLeituraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarLeituraToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.cadastrarLeituraToolStripMenuItem.Text = "Cadastrar Leitura";
             // 
             // vazãoToolStripMenuItem
@@ -114,16 +122,9 @@ namespace Sats
             // nivelToolStripMenuItem
             // 
             this.nivelToolStripMenuItem.Name = "nivelToolStripMenuItem";
-            this.nivelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nivelToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.nivelToolStripMenuItem.Text = "Nivel";
             this.nivelToolStripMenuItem.Click += new System.EventHandler(this.nivelToolStripMenuItem_Click);
-            // 
-            // cadastrarPontoToolStripMenuItem
-            // 
-            this.cadastrarPontoToolStripMenuItem.Name = "cadastrarPontoToolStripMenuItem";
-            this.cadastrarPontoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarPontoToolStripMenuItem.Text = "Cadastrar Ponto";
-            this.cadastrarPontoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarPontoToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 

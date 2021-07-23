@@ -30,47 +30,29 @@ namespace Sats.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colMacroPontos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNovoMacro = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTopTelaPontos = new System.Windows.Forms.Label();
+            this.lbMacrosPonto = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.lbMacrosPonto);
             this.panel1.Location = new System.Drawing.Point(33, 263);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(730, 256);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMacroPontos});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 256);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // colMacroPontos
-            // 
-            this.colMacroPontos.HeaderText = "Pontos";
-            this.colMacroPontos.Name = "colMacroPontos";
-            this.colMacroPontos.Width = 686;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel2.Controls.Add(this.lblTopTelaPontos);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -107,6 +89,27 @@ namespace Sats.Views
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // lblTopTelaPontos
+            // 
+            this.lblTopTelaPontos.AutoSize = true;
+            this.lblTopTelaPontos.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTopTelaPontos.Location = new System.Drawing.Point(69, 42);
+            this.lblTopTelaPontos.Name = "lblTopTelaPontos";
+            this.lblTopTelaPontos.Size = new System.Drawing.Size(69, 22);
+            this.lblTopTelaPontos.TabIndex = 1;
+            this.lblTopTelaPontos.Text = "Macros";
+            this.lblTopTelaPontos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbMacrosPonto
+            // 
+            this.lbMacrosPonto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbMacrosPonto.FormattingEnabled = true;
+            this.lbMacrosPonto.ItemHeight = 15;
+            this.lbMacrosPonto.Location = new System.Drawing.Point(0, 0);
+            this.lbMacrosPonto.Name = "lbMacrosPonto";
+            this.lbMacrosPonto.Size = new System.Drawing.Size(730, 256);
+            this.lbMacrosPonto.TabIndex = 0;
+            // 
             // FormMacro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -122,7 +125,8 @@ namespace Sats.Views
             this.Text = "Macros";
             this.Load += new System.EventHandler(this.FormMacro_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,11 +136,11 @@ namespace Sats.Views
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNovoMacro;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMacroPontos;
+        private System.Windows.Forms.Label lblTopTelaPontos;
+        private System.Windows.Forms.ListBox lbMacrosPonto;
     }
 }

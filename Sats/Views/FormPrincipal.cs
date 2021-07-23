@@ -25,7 +25,7 @@ namespace Sats
 
         private void cadastrarMacroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormMacro form = new();
+            FormNovoMacro form = new();
             form.Show();
         }
 
@@ -55,6 +55,12 @@ namespace Sats
         private void nivelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormLeituraNível form = new();
+            form.Show();
+        }
+
+        private void macrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMacro form = new();
             form.Show();
         }
     }

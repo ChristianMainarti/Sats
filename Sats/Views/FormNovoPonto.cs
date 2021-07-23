@@ -73,11 +73,14 @@ namespace Sats.Views
                 using (var Context = new Context())
                 {
                     Ponto ponto = new();
+                    ConfigNv configNv = new();
                     ponto.Macro_ID = Convert.ToInt32(cboxPontoMacro.SelectedItem.ToString().Split("-")[0]);
                     ponto.Nome_Ponto = txtNomePonto.Text;
                     ponto.Endereço_Ponto = txtEndereço.Text;
                     ponto.Nome_Medidor = txtNomeMedidor.Text;
                     ponto.Tipo_Medidor = cbxPontoTipo.Text;
+                    configNv.LimSup = Convert.ToInt32(txtLimSup.Text);
+                    configNv.LimInf = Convert.ToInt32(txtLimInf.Text);
 
                     Context.Pontos.Add(ponto);
                     Context.SaveChanges();
@@ -108,6 +111,14 @@ namespace Sats.Views
             }
             catch (Exception)
             {
+            }
+        }
+
+        private void cbxPontoTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxPontoTipo.SelectedIndex.ToString() == "Nivel")
+            {
+                
             }
         }
     }

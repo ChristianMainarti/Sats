@@ -36,12 +36,12 @@ namespace Sats.Views
             this.colValorLeitura = new System.Windows.Forms.ColumnHeader();
             this.colDataHora = new System.Windows.Forms.ColumnHeader();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNovaLeitura = new System.Windows.Forms.Button();
             this.btnEditaLeitura = new System.Windows.Forms.Button();
             this.btnApagaLeitura = new System.Windows.Forms.Button();
             this.clbLeituraPontos = new System.Windows.Forms.CheckedListBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +71,6 @@ namespace Sats.Views
             this.lvPontoLeituras.TabIndex = 0;
             this.lvPontoLeituras.UseCompatibleStateImageBehavior = false;
             this.lvPontoLeituras.View = System.Windows.Forms.View.Details;
-            this.lvPontoLeituras.SelectedIndexChanged += new System.EventHandler(this.lvPontoLeituras_SelectedIndexChanged);
             // 
             // colNomePonto
             // 
@@ -102,6 +101,16 @@ namespace Sats.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(659, 128);
             this.panel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(55, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 28);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Ponto";
             // 
             // label1
             // 
@@ -137,6 +146,7 @@ namespace Sats.Views
             this.btnEditaLeitura.TabIndex = 5;
             this.btnEditaLeitura.Text = "Editar Leitura";
             this.btnEditaLeitura.UseVisualStyleBackColor = false;
+            this.btnEditaLeitura.Click += new System.EventHandler(this.btnEditaLeitura_Click);
             // 
             // btnApagaLeitura
             // 
@@ -149,6 +159,7 @@ namespace Sats.Views
             this.btnApagaLeitura.TabIndex = 6;
             this.btnApagaLeitura.Text = "Apagar Leitura";
             this.btnApagaLeitura.UseVisualStyleBackColor = false;
+            this.btnApagaLeitura.Click += new System.EventHandler(this.btnApagaLeitura_Click);
             // 
             // clbLeituraPontos
             // 
@@ -157,16 +168,6 @@ namespace Sats.Views
             this.clbLeituraPontos.Name = "clbLeituraPontos";
             this.clbLeituraPontos.Size = new System.Drawing.Size(120, 112);
             this.clbLeituraPontos.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(55, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 28);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Ponto";
             // 
             // FormPonto
             // 

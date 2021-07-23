@@ -43,6 +43,10 @@ namespace Sats.Views
             this.cboxPontoMacro = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvarNovoPonto = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtLimSup = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtLimInf = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +74,10 @@ namespace Sats.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightBlue;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txtLimInf);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.txtLimSup);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtNomeMedidor);
             this.panel2.Controls.Add(this.cbxPontoTipo);
@@ -89,7 +97,7 @@ namespace Sats.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(427, 96);
+            this.label5.Location = new System.Drawing.Point(427, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 19);
             this.label5.TabIndex = 9;
@@ -97,7 +105,7 @@ namespace Sats.Views
             // 
             // txtNomeMedidor
             // 
-            this.txtNomeMedidor.Location = new System.Drawing.Point(536, 96);
+            this.txtNomeMedidor.Location = new System.Drawing.Point(536, 154);
             this.txtNomeMedidor.Name = "txtNomeMedidor";
             this.txtNomeMedidor.Size = new System.Drawing.Size(230, 23);
             this.txtNomeMedidor.TabIndex = 8;
@@ -113,6 +121,7 @@ namespace Sats.Views
             this.cbxPontoTipo.Name = "cbxPontoTipo";
             this.cbxPontoTipo.Size = new System.Drawing.Size(230, 23);
             this.cbxPontoTipo.TabIndex = 7;
+            this.cbxPontoTipo.SelectedIndexChanged += new System.EventHandler(this.cbxPontoTipo_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -126,7 +135,7 @@ namespace Sats.Views
             // 
             // txtEndereço
             // 
-            this.txtEndereço.Location = new System.Drawing.Point(117, 163);
+            this.txtEndereço.Location = new System.Drawing.Point(117, 192);
             this.txtEndereço.Name = "txtEndereço";
             this.txtEndereço.Size = new System.Drawing.Size(649, 23);
             this.txtEndereço.TabIndex = 5;
@@ -135,7 +144,7 @@ namespace Sats.Views
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(44, 163);
+            this.label3.Location = new System.Drawing.Point(44, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 19);
             this.label3.TabIndex = 4;
@@ -145,7 +154,7 @@ namespace Sats.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(44, 96);
+            this.label2.Location = new System.Drawing.Point(44, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 19);
             this.label2.TabIndex = 3;
@@ -153,7 +162,7 @@ namespace Sats.Views
             // 
             // txtNomePonto
             // 
-            this.txtNomePonto.Location = new System.Drawing.Point(117, 92);
+            this.txtNomePonto.Location = new System.Drawing.Point(117, 107);
             this.txtNomePonto.Name = "txtNomePonto";
             this.txtNomePonto.Size = new System.Drawing.Size(230, 23);
             this.txtNomePonto.TabIndex = 2;
@@ -188,6 +197,44 @@ namespace Sats.Views
             this.btnSalvarNovoPonto.Text = "Salvar";
             this.btnSalvarNovoPonto.UseVisualStyleBackColor = false;
             this.btnSalvarNovoPonto.Click += new System.EventHandler(this.btnSalvarNovoPonto_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(427, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 19);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Limite Superior";
+            this.label6.Visible = false;
+            // 
+            // txtLimSup
+            // 
+            this.txtLimSup.Location = new System.Drawing.Point(536, 69);
+            this.txtLimSup.Name = "txtLimSup";
+            this.txtLimSup.Size = new System.Drawing.Size(230, 23);
+            this.txtLimSup.TabIndex = 10;
+            this.txtLimSup.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(427, 111);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 19);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Limite Inferior";
+            this.label7.Visible = false;
+            // 
+            // txtLimInf
+            // 
+            this.txtLimInf.Location = new System.Drawing.Point(536, 111);
+            this.txtLimInf.Name = "txtLimInf";
+            this.txtLimInf.Size = new System.Drawing.Size(230, 23);
+            this.txtLimInf.TabIndex = 12;
+            this.txtLimInf.Visible = false;
             // 
             // FormNovoPonto
             // 
@@ -225,5 +272,9 @@ namespace Sats.Views
         private System.Windows.Forms.Button btnSalvarNovoPonto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNomeMedidor;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtLimInf;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtLimSup;
     }
 }

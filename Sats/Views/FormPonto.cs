@@ -142,7 +142,19 @@ namespace Sats.Views
             }
         }
 
-        private void lvPontoLeituras_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnEditaLeitura_Click(object sender, EventArgs e)
+        {
+            using var context = new Context();
+            {
+                int id = Convert.ToInt32(clbLeituraPontos.SelectedItem.ToString().Split(" - ")[0]);
+                FormNovoPonto form = new(id);
+                form.Show();
+                clbLeituraPontos.Items.Clear();
+                lvPontoLeituras.Items.Clear();
+                CarregaDados(tipo);
+            }
+        }
+        private void btnApagaLeitura_Click(object sender, EventArgs e)
         {
 
         }

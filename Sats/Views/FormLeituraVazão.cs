@@ -54,7 +54,7 @@ namespace Sats.Views
                     LeituraVazão leituraVazão = new();
                     leituraVazão.Ponto_Leitura = Convert.ToInt32(cbLeituraVPonto.SelectedItem.ToString().Split(" - ")[0]);
                     leituraVazão.Leiturista = txtLeituristaV.Text;
-                    leituraVazão.Valor_Leitura = float.Parse(txtLeituraVazão.Text);
+                    leituraVazão.Valor_Leitura = (float)(float.Parse(txtLeituraVazão.Text) * 3.6);
                     leituraVazão.Data_Hora = Convert.ToDateTime(mtxDataHoraV.Text);
 
                 context.LeituraVazãos.Add(leituraVazão);
