@@ -58,11 +58,14 @@ namespace Sats.Views
                     leituraVazão.Data_Hora = Convert.ToDateTime(mtxDataHoraV.Text);
 
                 context.LeituraVazãos.Add(leituraVazão);
-                context.SaveChanges();
+                context.SaveChanges();                
                 }
+                MessageBox.Show("Nova leitura salva com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             catch (Exception)
             {
+                MessageBox.Show("Não foi possível salvar a Leitura, tente novamente.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

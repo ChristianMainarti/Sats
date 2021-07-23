@@ -39,9 +39,9 @@ namespace Sats.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTituloLeitura = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtDataHoraN = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvarLeituraN = new System.Windows.Forms.Button();
-            this.txtDataHoraN = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -120,9 +120,9 @@ namespace Sats.Views
             this.lblTituloLeitura.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTituloLeitura.Location = new System.Drawing.Point(34, 47);
             this.lblTituloLeitura.Name = "lblTituloLeitura";
-            this.lblTituloLeitura.Size = new System.Drawing.Size(147, 28);
+            this.lblTituloLeitura.Size = new System.Drawing.Size(207, 28);
             this.lblTituloLeitura.TabIndex = 1;
-            this.lblTituloLeitura.Text = "Nova Leitura";
+            this.lblTituloLeitura.Text = "Nova Leitura Nível";
             // 
             // panel2
             // 
@@ -140,6 +140,15 @@ namespace Sats.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(373, 378);
             this.panel2.TabIndex = 9;
+            // 
+            // txtDataHoraN
+            // 
+            this.txtDataHoraN.Location = new System.Drawing.Point(113, 333);
+            this.txtDataHoraN.Mask = "00/00/0000 90:00";
+            this.txtDataHoraN.Name = "txtDataHoraN";
+            this.txtDataHoraN.Size = new System.Drawing.Size(175, 25);
+            this.txtDataHoraN.TabIndex = 9;
+            this.txtDataHoraN.ValidatingType = typeof(System.DateTime);
             // 
             // label1
             // 
@@ -162,15 +171,6 @@ namespace Sats.Views
             this.btnSalvarLeituraN.Text = "Salvar";
             this.btnSalvarLeituraN.UseVisualStyleBackColor = false;
             this.btnSalvarLeituraN.Click += new System.EventHandler(this.btnSalvarLeituraN_Click);
-            // 
-            // txtDataHoraN
-            // 
-            this.txtDataHoraN.Location = new System.Drawing.Point(113, 333);
-            this.txtDataHoraN.Mask = "00/00/0000 90:00";
-            this.txtDataHoraN.Name = "txtDataHoraN";
-            this.txtDataHoraN.Size = new System.Drawing.Size(175, 25);
-            this.txtDataHoraN.TabIndex = 9;
-            this.txtDataHoraN.ValidatingType = typeof(System.DateTime);
             // 
             // FormLeituraNível
             // 

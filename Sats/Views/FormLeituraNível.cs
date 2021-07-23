@@ -49,7 +49,7 @@ namespace Sats.Views
                     leituraNível.Ponto_Leitura = Convert.ToInt32(cbLeituraNPonto.SelectedItem.ToString().Split(" - ")[0]);
                     leituraNível.Leiturista = txtLeituristaN.Text;
                     leituraNível.Valor_Leitura = float.Parse(txtValorLeituraN.Text);
-                    leituraNível.Data_Hora = Convert.ToDateTime(txtDataHoraN.ToString());
+                    leituraNível.Data_Hora = Convert.ToDateTime(txtDataHoraN.Text);
 
                     context.LeituraNívels.Add(leituraNível);
                     context.SaveChanges();

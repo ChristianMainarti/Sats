@@ -35,7 +35,7 @@ namespace Sats
                     {
                         foreach (var item in query)
                         {
-                            listbPontosPontos.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
+                            listbPontosPontos.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto} - {item.Tipo_Medidor}");
                             string[] listview = new string[3];
                             listview[0] = item.Nome_Ponto;
                             listview[1] = item.Macro_ID.ToString();
@@ -83,22 +83,24 @@ namespace Sats
             lvPontosPontos.Items.Clear();
             CarregaDados();
         }
-
         private void lbPontosPontos_SelectedIndexChanged(object sender, EventArgs e)
         {
             string pegaItem = listbPontosPontos.SelectedItem.ToString();   
 
         }
-
         private void btnAttPonto_Click(object sender, EventArgs e)
         {
             try
             {
+                //falta tratar direito, continua dando erro
                 using var context = new Context();
                 {
                     int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
                     FormNovoPonto form = new(id);
                     form.Show();
+                    listbPontosPontos.Items.Clear();
+                    lvPontosPontos.Items.Clear();
+                    CarregaDados();
                 }
             }
             catch (Exception )
@@ -106,7 +108,6 @@ namespace Sats
                 MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }    
         }
-
         private void btnApagarPonto_Click(object sender, EventArgs e)
         {
             try
@@ -157,7 +158,31 @@ namespace Sats
         }
         private void btnNovaLeitura_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                //falta tratar direito, continua dando erro
+                if (listbPontosPontos.SelectedIndex > -1)
+                {
+                    using var context = new Context();
+                    {
+                        string tipo = listbPontosPontos.SelectedItem.ToString().Split(" - ")[2];
+                        SelecionaTipoLeitura(tipo);
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+        private void btnMostraLeiturasPonto_Click(object sender, EventArgs e)
+        {
+            string tipo = listbPontosPontos.SelectedItem.ToString().Split(" - ")[2];
+            FormPonto form = new(tipo);
+            form.Show();
         }
     }
 }

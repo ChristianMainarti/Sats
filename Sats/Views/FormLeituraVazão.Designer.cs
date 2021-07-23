@@ -41,12 +41,15 @@ namespace Sats.Views
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSalvarLeituraV = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -162,6 +165,16 @@ namespace Sats.Views
             this.btnSalvarLeituraV.UseVisualStyleBackColor = false;
             this.btnSalvarLeituraV.Click += new System.EventHandler(this.btnSalvarLeituraV_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(34, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(217, 28);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Nova Leitura Vazão";
+            // 
             // FormLeituraVazão
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -175,8 +188,9 @@ namespace Sats.Views
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormLeituraVazão";
-            this.Text = "FormLeituraVazão";
             this.Load += new System.EventHandler(this.FormLeituraVazão_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -197,5 +211,6 @@ namespace Sats.Views
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mtxDataHoraV;
+        private System.Windows.Forms.Label label5;
     }
 }

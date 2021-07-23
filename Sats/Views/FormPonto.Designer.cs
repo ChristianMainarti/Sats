@@ -31,17 +31,19 @@ namespace Sats.Views
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lvPontoLeituras = new System.Windows.Forms.ListView();
+            this.colNomePonto = new System.Windows.Forms.ColumnHeader();
+            this.colLeiturista = new System.Windows.Forms.ColumnHeader();
+            this.colValorLeitura = new System.Windows.Forms.ColumnHeader();
+            this.colDataHora = new System.Windows.Forms.ColumnHeader();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNovaLeitura = new System.Windows.Forms.Button();
             this.btnEditaLeitura = new System.Windows.Forms.Button();
             this.btnApagaLeitura = new System.Windows.Forms.Button();
-            this.colNomePonto = new System.Windows.Forms.ColumnHeader();
-            this.colLeiturista = new System.Windows.Forms.ColumnHeader();
-            this.colValorLeitura = new System.Windows.Forms.ColumnHeader();
-            this.colDataHora = new System.Windows.Forms.ColumnHeader();
             this.clbLeituraPontos = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,10 +71,32 @@ namespace Sats.Views
             this.lvPontoLeituras.TabIndex = 0;
             this.lvPontoLeituras.UseCompatibleStateImageBehavior = false;
             this.lvPontoLeituras.View = System.Windows.Forms.View.Details;
+            this.lvPontoLeituras.SelectedIndexChanged += new System.EventHandler(this.lvPontoLeituras_SelectedIndexChanged);
+            // 
+            // colNomePonto
+            // 
+            this.colNomePonto.Text = "Ponto";
+            this.colNomePonto.Width = 100;
+            // 
+            // colLeiturista
+            // 
+            this.colLeiturista.Text = "Leiturista";
+            this.colLeiturista.Width = 130;
+            // 
+            // colValorLeitura
+            // 
+            this.colValorLeitura.Text = "Valor Leitura";
+            this.colValorLeitura.Width = 110;
+            // 
+            // colDataHora
+            // 
+            this.colDataHora.Text = "Data/Hora";
+            this.colDataHora.Width = 110;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -100,6 +124,7 @@ namespace Sats.Views
             this.btnNovaLeitura.TabIndex = 3;
             this.btnNovaLeitura.Text = "Nova Leitura";
             this.btnNovaLeitura.UseVisualStyleBackColor = false;
+            this.btnNovaLeitura.Click += new System.EventHandler(this.btnNovaLeitura_Click);
             // 
             // btnEditaLeitura
             // 
@@ -125,26 +150,6 @@ namespace Sats.Views
             this.btnApagaLeitura.Text = "Apagar Leitura";
             this.btnApagaLeitura.UseVisualStyleBackColor = false;
             // 
-            // colNomePonto
-            // 
-            this.colNomePonto.Text = "Ponto";
-            this.colNomePonto.Width = 100;
-            // 
-            // colLeiturista
-            // 
-            this.colLeiturista.Text = "Leiturista";
-            this.colLeiturista.Width = 130;
-            // 
-            // colValorLeitura
-            // 
-            this.colValorLeitura.Text = "Valor Leitura";
-            this.colValorLeitura.Width = 110;
-            // 
-            // colDataHora
-            // 
-            this.colDataHora.Text = "Data/Hora";
-            this.colDataHora.Width = 110;
-            // 
             // clbLeituraPontos
             // 
             this.clbLeituraPontos.FormattingEnabled = true;
@@ -152,6 +157,16 @@ namespace Sats.Views
             this.clbLeituraPontos.Name = "clbLeituraPontos";
             this.clbLeituraPontos.Size = new System.Drawing.Size(120, 112);
             this.clbLeituraPontos.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(55, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 28);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Ponto";
             // 
             // FormPonto
             // 
@@ -168,9 +183,10 @@ namespace Sats.Views
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "FormPonto";
-            this.Text = "FormPonto";
             this.Load += new System.EventHandler(this.FormPonto_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +206,6 @@ namespace Sats.Views
         private System.Windows.Forms.ColumnHeader colValorLeitura;
         private System.Windows.Forms.ColumnHeader colDataHora;
         private System.Windows.Forms.CheckedListBox clbLeituraPontos;
+        private System.Windows.Forms.Label label2;
     }
 }

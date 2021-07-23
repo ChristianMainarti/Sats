@@ -29,7 +29,7 @@ namespace Sats
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTopTelaPontos = new System.Windows.Forms.Label();
             this.btnNovoPonto = new System.Windows.Forms.Button();
@@ -43,6 +43,7 @@ namespace Sats
             this.listbPontosPontos = new System.Windows.Forms.CheckedListBox();
             this.btnApagarPonto = new System.Windows.Forms.Button();
             this.btnNovaLeitura = new System.Windows.Forms.Button();
+            this.btnMostraLeiturasPonto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +103,7 @@ namespace Sats
             this.lvPontosPontos.GridLines = true;
             this.lvPontosPontos.HideSelection = false;
             this.lvPontosPontos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.lvPontosPontos.Location = new System.Drawing.Point(0, 0);
             this.lvPontosPontos.Name = "lvPontosPontos";
             this.lvPontosPontos.Size = new System.Drawing.Size(455, 240);
@@ -182,12 +183,26 @@ namespace Sats
             this.btnNovaLeitura.UseVisualStyleBackColor = false;
             this.btnNovaLeitura.Click += new System.EventHandler(this.btnNovaLeitura_Click);
             // 
+            // btnMostraLeiturasPonto
+            // 
+            this.btnMostraLeiturasPonto.BackColor = System.Drawing.Color.LightBlue;
+            this.btnMostraLeiturasPonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostraLeiturasPonto.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMostraLeiturasPonto.Location = new System.Drawing.Point(331, 437);
+            this.btnMostraLeiturasPonto.Name = "btnMostraLeiturasPonto";
+            this.btnMostraLeiturasPonto.Size = new System.Drawing.Size(120, 50);
+            this.btnMostraLeiturasPonto.TabIndex = 15;
+            this.btnMostraLeiturasPonto.Text = "Mostrar Leituras";
+            this.btnMostraLeiturasPonto.UseVisualStyleBackColor = false;
+            this.btnMostraLeiturasPonto.Click += new System.EventHandler(this.btnMostraLeiturasPonto_Click);
+            // 
             // FormTelaPontos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(659, 499);
+            this.Controls.Add(this.btnMostraLeiturasPonto);
             this.Controls.Add(this.btnNovaLeitura);
             this.Controls.Add(this.listbPontosPontos);
             this.Controls.Add(this.btnApagarPonto);
@@ -222,6 +237,7 @@ namespace Sats
         private System.Windows.Forms.CheckedListBox listbPontosPontos;
         private System.Windows.Forms.Button btnApagarPonto;
         private System.Windows.Forms.Button btnNovaLeitura;
+        private System.Windows.Forms.Button btnMostraLeiturasPonto;
     }
 }
 

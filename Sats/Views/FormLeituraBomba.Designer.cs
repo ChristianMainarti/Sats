@@ -33,6 +33,7 @@ namespace Sats.Views
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.mtbDataHoraB = new System.Windows.Forms.MaskedTextBox();
             this.txtLeituristaB = new System.Windows.Forms.TextBox();
             this.cbEstadoMedidor = new System.Windows.Forms.ComboBox();
             this.cbLeituraB = new System.Windows.Forms.ComboBox();
@@ -41,7 +42,6 @@ namespace Sats.Views
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSalvarLeituraB = new System.Windows.Forms.Button();
-            this.mtbDataHoraB = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,9 +63,9 @@ namespace Sats.Views
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(35, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 28);
+            this.label1.Size = new System.Drawing.Size(228, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nova Leitura";
+            this.label1.Text = "Nova Leitura Bomba";
             // 
             // label2
             // 
@@ -92,6 +92,15 @@ namespace Sats.Views
             this.panel2.Size = new System.Drawing.Size(373, 378);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // mtbDataHoraB
+            // 
+            this.mtbDataHoraB.Location = new System.Drawing.Point(107, 288);
+            this.mtbDataHoraB.Mask = "00/00/0000 90:00";
+            this.mtbDataHoraB.Name = "mtbDataHoraB";
+            this.mtbDataHoraB.Size = new System.Drawing.Size(142, 25);
+            this.mtbDataHoraB.TabIndex = 8;
+            this.mtbDataHoraB.ValidatingType = typeof(System.DateTime);
             // 
             // txtLeituristaB
             // 
@@ -167,15 +176,6 @@ namespace Sats.Views
             this.btnSalvarLeituraB.UseVisualStyleBackColor = false;
             this.btnSalvarLeituraB.Click += new System.EventHandler(this.btnSalvarLeituraB_Click);
             // 
-            // mtbDataHoraB
-            // 
-            this.mtbDataHoraB.Location = new System.Drawing.Point(107, 288);
-            this.mtbDataHoraB.Mask = "00/00/0000 90:00";
-            this.mtbDataHoraB.Name = "mtbDataHoraB";
-            this.mtbDataHoraB.Size = new System.Drawing.Size(142, 25);
-            this.mtbDataHoraB.TabIndex = 8;
-            this.mtbDataHoraB.ValidatingType = typeof(System.DateTime);
-            // 
             // FormLeituraBomba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -189,7 +189,6 @@ namespace Sats.Views
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormLeituraBomba";
-            this.Text = "FormLeituraBomba";
             this.Load += new System.EventHandler(this.FormLeituraBomba_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
