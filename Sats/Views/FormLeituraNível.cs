@@ -46,10 +46,12 @@ namespace Sats.Views
                 using (var context = new Context())
                 {
                     LeituraNível leituraNível = new();
+                    ConfigNv configNv = new();
                     leituraNível.Ponto_Leitura = Convert.ToInt32(cbLeituraNPonto.SelectedItem.ToString().Split(" - ")[0]);
                     leituraNível.Leiturista = txtLeituristaN.Text;
-                    leituraNível.Valor_Leitura = float.Parse(txtValorLeituraN.Text);
+                    leituraNível.Valor_Leitura = ((configNv.LimSup-configNv.LimInf)/(16)*(float.Parse(txtValorLeituraN.Text)-4)+configNv.LimInf);
                     leituraNível.Data_Hora = Convert.ToDateTime(txtDataHoraN.Text);
+                    configNv.Ponto_ID = Convert.ToInt32(cbLeituraNPonto.SelectedItem.ToString().Split(" - ")[0]);
 
                     context.LeituraNívels.Add(leituraNível);
                     context.SaveChanges();

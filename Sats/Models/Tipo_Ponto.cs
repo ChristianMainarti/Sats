@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Sats.Models
 {
@@ -8,6 +9,7 @@ namespace Sats.Models
     {
         [Key]
         public int ID_Nome { get; set; }
+        public ICollection<Ponto> Pontos { get; set; }
     }
 
 }

@@ -81,7 +81,7 @@ namespace Sats.Views
                     ponto.Tipo_Medidor = cbxPontoTipo.Text;
                     configNv.LimSup = Convert.ToInt32(txtLimSup.Text);
                     configNv.LimInf = Convert.ToInt32(txtLimInf.Text);
-
+                    Context.ConfigNvs.Add(configNv);
                     Context.Pontos.Add(ponto);
                     Context.SaveChanges();
                 }
