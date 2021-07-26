@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Sats.Models
 {
+
     [Table("ConfigNv")]
     public class ConfigNv
     {

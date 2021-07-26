@@ -45,8 +45,9 @@ namespace Sats
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
         }
         private void FormPonto_Load(object sender, EventArgs e)
@@ -92,7 +93,7 @@ namespace Sats
         {
             try
             {
-                //falta tratar direito, continua dando erro
+                
                 using var context = new Context();
                 {
                     int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
@@ -100,7 +101,7 @@ namespace Sats
                     form.Show();
                     listbPontosPontos.Items.Clear();
                     lvPontosPontos.Items.Clear();
-                    CarregaDados();
+                    CarregaDados();  
                 }
             }
             catch (Exception )

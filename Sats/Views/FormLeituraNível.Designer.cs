@@ -39,6 +39,10 @@ namespace Sats.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTituloLeitura = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtLimInf = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtLimSup = new System.Windows.Forms.TextBox();
             this.txtDataHoraN = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalvarLeituraN = new System.Windows.Forms.Button();
@@ -66,7 +70,7 @@ namespace Sats.Views
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 131);
+            this.label2.Location = new System.Drawing.Point(21, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 2;
@@ -74,14 +78,14 @@ namespace Sats.Views
             // 
             // txtLeituristaN
             // 
-            this.txtLeituristaN.Location = new System.Drawing.Point(113, 130);
+            this.txtLeituristaN.Location = new System.Drawing.Point(113, 85);
             this.txtLeituristaN.Name = "txtLeituristaN";
             this.txtLeituristaN.Size = new System.Drawing.Size(175, 25);
             this.txtLeituristaN.TabIndex = 3;
             // 
             // txtValorLeituraN
             // 
-            this.txtValorLeituraN.Location = new System.Drawing.Point(113, 231);
+            this.txtValorLeituraN.Location = new System.Drawing.Point(113, 141);
             this.txtValorLeituraN.Name = "txtValorLeituraN";
             this.txtValorLeituraN.Size = new System.Drawing.Size(175, 25);
             this.txtValorLeituraN.TabIndex = 5;
@@ -89,7 +93,7 @@ namespace Sats.Views
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 232);
+            this.label3.Location = new System.Drawing.Point(26, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 19);
             this.label3.TabIndex = 4;
@@ -98,7 +102,7 @@ namespace Sats.Views
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 333);
+            this.label4.Location = new System.Drawing.Point(21, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 19);
             this.label4.TabIndex = 6;
@@ -127,6 +131,10 @@ namespace Sats.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightBlue;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txtLimInf);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.txtLimSup);
             this.panel2.Controls.Add(this.txtDataHoraN);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cbLeituraNPonto);
@@ -141,9 +149,47 @@ namespace Sats.Views
             this.panel2.Size = new System.Drawing.Size(373, 378);
             this.panel2.TabIndex = 9;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(5, 256);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 19);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Limite Inferior";
+            this.label7.Visible = false;
+            // 
+            // txtLimInf
+            // 
+            this.txtLimInf.Location = new System.Drawing.Point(113, 253);
+            this.txtLimInf.Name = "txtLimInf";
+            this.txtLimInf.Size = new System.Drawing.Size(230, 25);
+            this.txtLimInf.TabIndex = 16;
+            this.txtLimInf.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(5, 200);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 19);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Limite Superior";
+            this.label6.Visible = false;
+            // 
+            // txtLimSup
+            // 
+            this.txtLimSup.Location = new System.Drawing.Point(113, 197);
+            this.txtLimSup.Name = "txtLimSup";
+            this.txtLimSup.Size = new System.Drawing.Size(175, 25);
+            this.txtLimSup.TabIndex = 14;
+            this.txtLimSup.Visible = false;
+            // 
             // txtDataHoraN
             // 
-            this.txtDataHoraN.Location = new System.Drawing.Point(113, 333);
+            this.txtDataHoraN.Location = new System.Drawing.Point(113, 309);
             this.txtDataHoraN.Mask = "00/00/0000 90:00";
             this.txtDataHoraN.Name = "txtDataHoraN";
             this.txtDataHoraN.Size = new System.Drawing.Size(175, 25);
@@ -154,7 +200,7 @@ namespace Sats.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(34, 251);
+            this.label1.Location = new System.Drawing.Point(34, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 16);
             this.label1.TabIndex = 8;
@@ -210,5 +256,9 @@ namespace Sats.Views
         private System.Windows.Forms.Button btnSalvarLeituraN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox txtDataHoraN;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtLimInf;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtLimSup;
     }
 }

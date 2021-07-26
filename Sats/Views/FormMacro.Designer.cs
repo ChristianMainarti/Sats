@@ -30,12 +30,12 @@ namespace Sats.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbMacrosPonto = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTopTelaPontos = new System.Windows.Forms.Label();
             this.btnNovoMacro = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblTopTelaPontos = new System.Windows.Forms.Label();
-            this.lbMacrosPonto = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,6 +49,17 @@ namespace Sats.Views
             this.panel1.Size = new System.Drawing.Size(730, 256);
             this.panel1.TabIndex = 0;
             // 
+            // lbMacrosPonto
+            // 
+            this.lbMacrosPonto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbMacrosPonto.FormattingEnabled = true;
+            this.lbMacrosPonto.ItemHeight = 15;
+            this.lbMacrosPonto.Location = new System.Drawing.Point(0, 0);
+            this.lbMacrosPonto.Name = "lbMacrosPonto";
+            this.lbMacrosPonto.Size = new System.Drawing.Size(730, 256);
+            this.lbMacrosPonto.TabIndex = 0;
+            this.lbMacrosPonto.SelectedIndexChanged += new System.EventHandler(this.lbMacrosPonto_SelectedIndexChanged);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
@@ -58,6 +69,17 @@ namespace Sats.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(804, 114);
             this.panel2.TabIndex = 1;
+            // 
+            // lblTopTelaPontos
+            // 
+            this.lblTopTelaPontos.AutoSize = true;
+            this.lblTopTelaPontos.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTopTelaPontos.Location = new System.Drawing.Point(69, 42);
+            this.lblTopTelaPontos.Name = "lblTopTelaPontos";
+            this.lblTopTelaPontos.Size = new System.Drawing.Size(69, 22);
+            this.lblTopTelaPontos.TabIndex = 1;
+            this.lblTopTelaPontos.Text = "Macros";
+            this.lblTopTelaPontos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNovoMacro
             // 
@@ -88,27 +110,6 @@ namespace Sats.Views
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblTopTelaPontos
-            // 
-            this.lblTopTelaPontos.AutoSize = true;
-            this.lblTopTelaPontos.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTopTelaPontos.Location = new System.Drawing.Point(69, 42);
-            this.lblTopTelaPontos.Name = "lblTopTelaPontos";
-            this.lblTopTelaPontos.Size = new System.Drawing.Size(69, 22);
-            this.lblTopTelaPontos.TabIndex = 1;
-            this.lblTopTelaPontos.Text = "Macros";
-            this.lblTopTelaPontos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMacrosPonto
-            // 
-            this.lbMacrosPonto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMacrosPonto.FormattingEnabled = true;
-            this.lbMacrosPonto.ItemHeight = 15;
-            this.lbMacrosPonto.Location = new System.Drawing.Point(0, 0);
-            this.lbMacrosPonto.Name = "lbMacrosPonto";
-            this.lbMacrosPonto.Size = new System.Drawing.Size(730, 256);
-            this.lbMacrosPonto.TabIndex = 0;
             // 
             // FormMacro
             // 

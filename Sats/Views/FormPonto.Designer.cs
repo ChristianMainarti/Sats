@@ -84,12 +84,12 @@ namespace Sats.Views
             // 
             // colValorLeitura
             // 
-            this.colValorLeitura.Text = "Valor Leitura";
+            this.colValorLeitura.Text = "Data/Hora";
             this.colValorLeitura.Width = 110;
             // 
             // colDataHora
             // 
-            this.colDataHora.Text = "Data/Hora";
+            this.colDataHora.Text = "Valor Leitura";
             this.colDataHora.Width = 110;
             // 
             // panel2
@@ -168,6 +168,7 @@ namespace Sats.Views
             this.clbLeituraPontos.Name = "clbLeituraPontos";
             this.clbLeituraPontos.Size = new System.Drawing.Size(120, 112);
             this.clbLeituraPontos.TabIndex = 7;
+            this.clbLeituraPontos.SelectedIndexChanged += new System.EventHandler(this.clbLeituraPontos_SelectedIndexChanged);
             // 
             // FormPonto
             // 

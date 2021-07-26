@@ -51,14 +51,6 @@ namespace Sats.Views
                         MessageBox.Show("Ponto Não encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }
-                    Ponto ponto = new();
-                    ponto.Macro_ID = Convert.ToInt32(cboxPontoMacro.SelectedItem.ToString().Split("-")[0]);
-                    ponto.Nome_Ponto = txtNomePonto.Text;
-                    ponto.Endereço_Ponto = txtEndereço.Text;
-                    ponto.Nome_Medidor = txtNomeMedidor.Text;
-                    ponto.Tipo_Medidor = cbxPontoTipo.Text;
-                    context.Pontos.Add(ponto);
-                    context.SaveChanges();
                 }
             }
             catch (Exception e)

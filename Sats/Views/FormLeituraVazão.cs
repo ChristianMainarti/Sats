@@ -17,6 +17,38 @@ namespace Sats.Views
         {
             InitializeComponent();
         }
+        public FormLeituraVazão(int id)
+        {
+            InitializeComponent();
+            BuscaLeitura(id);
+        }
+        private void BuscaLeitura(int id)
+        {
+            using (var context = new Context())
+            {
+                var query = context.LeituraVazãos.Where(s => s.ID_Leitura == id).Select(s => new
+                {
+                    s.ID_Leitura,
+                    s.Leiturista,
+                    s.Ponto_Leitura,
+                    s.Valor_Leitura,
+                    s.Data_Hora,                       
+                    s.Ponto
+                }).First();
+                if (query!= null)
+                {
+                    cbLeituraVPonto.Text = $"{query.Ponto.ID_Ponto} - {query.Ponto.Nome_Ponto}";
+                    txtLeituristaV.Text = query.Leiturista;
+                    txtLeituraVazão.Text = query.Valor_Leitura.ToString();
+                    mtxDataHoraV.Text = query.Data_Hora.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Ponto Não encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+            }
+        }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {

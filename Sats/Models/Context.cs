@@ -15,7 +15,6 @@ namespace Sats.Models
         public DbSet<Tipo_Ponto> Tipo_Pontos { get; set; }
         public DbSet<ConfigVaz> ConfigVazs { get; set; }
         public DbSet<ConfigNv> ConfigNvs { get; set; }
-        public DbSet<ConfigBomba> ConfigBombas { get; set; }
         public DbSet<Leitura> Leituras { get; set; }
         public DbSet<LeituraVazão> LeituraVazãos { get; set; }
         public DbSet<LeituraNível> LeituraNívels { get; set; }

@@ -21,12 +21,11 @@ namespace Sats.Models
             [ForeignKey("Macro")]
             public int Macro_ID { get; set; }
             public Macro Macro { get; set; }
-            [ForeignKey("Tipo_Ponto")]
-            public int Tipo_Ponto { get; set; }
-            public Tipo_Ponto Tipo_Ponto_ID { get; set; }
+            //[ForeignKey("Tipo_Ponto")]
+            //public int Tipo_Ponto { get; set; }
+            //public Tipo_Ponto Tipo_Ponto_ID { get; set; }
             public ICollection<ConfigVaz> Config_Vazs { get; set; }
             public ICollection<ConfigNv> Config_Nvs { get; set; }
-            public ICollection<ConfigBomba> Config_Bombas { get; set; }
             public ICollection<LeituraVazão> LeituraVazãos { get; set; }
             public ICollection<LeituraNível> LeituraNívels { get; set; }
             public ICollection<LeituraBomba> LeituraBombas { get; set; }

@@ -17,6 +17,38 @@ namespace Sats.Views
         {
             InitializeComponent();
         }
+        public FormLeituraNível(int id)
+        {
+            InitializeComponent();
+            BuscaLeitura(id);
+        }
+        private void BuscaLeitura(int id)
+        {
+            using (var context = new Context())
+            {
+                var query = context.LeituraNívels.Where(s => s.ID_Leitura == id).Select(s => new
+                {
+                    s.ID_Leitura,
+                    s.Leiturista,
+                    s.Ponto_Leitura,
+                    s.Valor_Leitura,
+                    s.Data_Hora,
+                    s.Ponto,                    
+                }).First();
+                if (query != null)
+                {
+                    cbLeituraNPonto.Text = $"{query.Ponto.ID_Ponto} - {query.Ponto.Nome_Ponto}";
+                    txtLeituristaN.Text = query.Leiturista;
+                    txtValorLeituraN.Text = query.Valor_Leitura.ToString();
+                    txtDataHoraN.Text = query.Data_Hora.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Ponto Não encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+            }
+        }
 
         private void FormLeituraNível_Load(object sender, EventArgs e)
         {
@@ -31,7 +63,8 @@ namespace Sats.Views
                         {
                             cbLeituraNPonto.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
                         }
-                    }                    
+                    }
+                    var query = context.ConfigNvs.Select(s => new { s.LimSup, s.LimInf }).ToList();
                 }
             }
             catch (Exception)
@@ -46,21 +79,21 @@ namespace Sats.Views
                 using (var context = new Context())
                 {
                     LeituraNível leituraNível = new();
-                    ConfigNv configNv = new();
-                    leituraNível.Ponto_Leitura = Convert.ToInt32(cbLeituraNPonto.SelectedItem.ToString().Split(" - ")[0]);
+                    var Ponto_ID = Convert.ToInt32(cbLeituraNPonto.SelectedItem.ToString().Split(" - ")[0]);
+                    var query = context.ConfigNvs.Where(s => s.Ponto_ID == Ponto_ID).First();
+                    leituraNível.Ponto_Leitura = Ponto_ID;
                     leituraNível.Leiturista = txtLeituristaN.Text;
-                    leituraNível.Valor_Leitura = ((configNv.LimSup-configNv.LimInf)/(16)*(float.Parse(txtValorLeituraN.Text)-4)+configNv.LimInf);
-                    leituraNível.Data_Hora = Convert.ToDateTime(txtDataHoraN.Text);
-                    configNv.Ponto_ID = Convert.ToInt32(cbLeituraNPonto.SelectedItem.ToString().Split(" - ")[0]);
-
+                    leituraNível.Valor_Leitura = (float.Parse(txtValorLeituraN.Text) - 4)*(query.LimSup - query.LimInf)/16 + query.LimInf;
+                    leituraNível.Data_Hora = Convert.ToDateTime(txtDataHoraN.Text);                 
                     context.LeituraNívels.Add(leituraNível);
                     context.SaveChanges();
                 }
                 MessageBox.Show("Nova leitura salva com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }

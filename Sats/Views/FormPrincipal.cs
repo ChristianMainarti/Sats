@@ -63,5 +63,10 @@ namespace Sats
             FormMacro form = new();
             form.Show();
         }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

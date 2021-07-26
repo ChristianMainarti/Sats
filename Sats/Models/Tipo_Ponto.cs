@@ -9,7 +9,7 @@ namespace Sats.Models
     {
         [Key]
         public int ID_Nome { get; set; }
-        public ICollection<Ponto> Pontos { get; set; }
+        //public ICollection<Ponto> Pontos { get; set; }
     }
 
 }

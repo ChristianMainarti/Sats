@@ -47,16 +47,14 @@ namespace Sats.Views
         {
             CarregaDados();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             FormNovoMacro form = new FormNovoMacro();
             form.Show();
+        }
+        private void lbMacrosPonto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

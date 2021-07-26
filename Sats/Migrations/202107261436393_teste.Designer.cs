@@ -13,7 +13,7 @@ namespace Sats.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202107191538034_teste"; }
+            get { return "202107261436393_teste"; }
         }
         
         string IMigrationMetadata.Source
