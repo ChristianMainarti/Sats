@@ -123,13 +123,14 @@ namespace Sats.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(544, 443);
+            this.ClientSize = new System.Drawing.Size(544, 441);
             this.Controls.Add(this.btnApagarM);
             this.Controls.Add(this.btnEditarM);
             this.Controls.Add(this.btnNovoMacro);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormMacro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Macros";
             this.Load += new System.EventHandler(this.FormMacro_Load);
             this.panel1.ResumeLayout(false);

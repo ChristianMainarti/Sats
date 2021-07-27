@@ -82,7 +82,7 @@ namespace Sats.Views
             }
             catch   
             {
-                MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void Pontos_Load(object sender, EventArgs e)

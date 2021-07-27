@@ -59,21 +59,21 @@ namespace Sats.Views
                 if (tipo == "Vazão")
                 {
                     FormLeituraVazão formVazão = new(id);
-                    formVazão.Show();
+                    formVazão.ShowDialog();
                     lvPontoLeituras.Items.Clear();
                     CarregaDados(tipo);
                 }
                 else if (tipo == "Bomba")
                 {
                     FormLeituraBomba formBomba = new(id);
-                    formBomba.Show();
+                    formBomba.ShowDialog();
                     lvPontoLeituras.Items.Clear();
                     CarregaDados(tipo);
                 }
                 else
                 {
                     FormLeituraNível formNível = new(id);
-                    formNível.Show(); 
+                    formNível.ShowDialog(); 
                     lvPontoLeituras.Items.Clear();
                     CarregaDados(tipo);
                 }
@@ -239,7 +239,7 @@ namespace Sats.Views
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                MessageBox.Show("Não foi Possível Carregar as Leituras!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi Possível Carregar as Leituras!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void FormPonto_Load(object sender, EventArgs e)
@@ -255,6 +255,7 @@ namespace Sats.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+
             }
         }
 
@@ -267,7 +268,7 @@ namespace Sats.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi Possível apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnApagaLeitura_Click(object sender, EventArgs e)
@@ -279,7 +280,7 @@ namespace Sats.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi Possível apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

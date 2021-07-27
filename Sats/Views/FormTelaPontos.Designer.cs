@@ -213,6 +213,7 @@ namespace Sats
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "FormTelaPontos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormPonto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -108,7 +108,7 @@ namespace Sats
             }
             catch (Exception )
             {
-                MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }    
         }
         private void btnApagarPonto_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace Sats
             }
             catch (Exception)
             {
-                MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void SelecionaTipoLeitura(string tipo)
@@ -138,25 +138,24 @@ namespace Sats
                         if (tipo == "Vazão")
                         {
                             FormLeituraVazão form = new();
-                            form.Show();
+                            form.ShowDialog();
                         }
                         else if (tipo == "Bomba")
                         {
                             FormLeituraBomba form = new();
-                            form.Show();
+                            form.ShowDialog();
                         }
                         else
                         {
                             FormLeituraNível form = new();
-                            form.Show();
+                            form.ShowDialog();
                         }
                     }
                 }
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Não foi possível selecionar, favor confir o tipo do ponto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error  );
             }
         }
         private void btnNovaLeitura_Click(object sender, EventArgs e)
@@ -174,18 +173,19 @@ namespace Sats
                 }
                 else 
                 {
-                    MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception)
             {
+                MessageBox.Show("Não foi possível Salvar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnMostraLeiturasPonto_Click(object sender, EventArgs e)
         {
             string tipo = listbPontosPontos.SelectedItem.ToString().Split(" - ")[2];
             FormPonto form = new(tipo);
-            form.Show();
+            form.ShowDialog();
         }
     }
 }

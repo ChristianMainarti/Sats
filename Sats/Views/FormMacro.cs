@@ -42,7 +42,7 @@ namespace Sats.Views
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                MessageBox.Show("Não foi possivel carregar os dados", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi possivel carregar os dados", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void FormMacro_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Sats.Views
         private void btnNovoMacro_Click(object sender, EventArgs e)
         {
             FormNovoMacro form = new FormNovoMacro();
-            form.Show();
+            form.ShowDialog();
         }
         private void btnEditarM_Click(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace Sats.Views
                 {
                     int id = Convert.ToInt32(lbMacrosPonto.SelectedItem.ToString().Split(" - ")[0]);
                     FormNovoMacro form = new(id);
-                    form.Show();
+                    form.ShowDialog();
                     lbMacrosPonto.Items.Clear();
                     CarregaDados();
                 }
@@ -70,7 +70,7 @@ namespace Sats.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Selecione o Macro antes de editar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione o Macro antes de editar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -95,7 +95,7 @@ namespace Sats.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Não foi possivel encontrar o macro ", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi possivel encontrar o macro ", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
