@@ -51,7 +51,6 @@ namespace Sats.Views
             this.txtNomeMacro.Name = "txtNomeMacro";
             this.txtNomeMacro.Size = new System.Drawing.Size(186, 23);
             this.txtNomeMacro.TabIndex = 1;
-            this.txtNomeMacro.TextChanged += new System.EventHandler(this.txtNomeMacro_TextChanged);
             // 
             // btnSalvarNovoMacro
             // 

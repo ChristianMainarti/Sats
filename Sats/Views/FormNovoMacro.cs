@@ -26,11 +26,6 @@ namespace Sats.Views
         {
 
         }
-
-        private void txtNomeMacro_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
         // botão responsável por salvar o cadastro de um novo macro
         private void btnSalvarNovoMacro_Click(object sender, EventArgs e)
         {

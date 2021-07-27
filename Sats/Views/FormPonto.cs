@@ -51,9 +51,10 @@ namespace Sats.Views
         }
         private void EditaLeitura(int id)
         {
-            id = Convert.ToInt32(lvPontoLeituras.SelectedItems[0].Text);
             try
             {
+                id = Convert.ToInt32(lvPontoLeituras.SelectedItems[0].Text);
+
                 using var context = new Context();
                 if (tipo == "Vazão")
                 {

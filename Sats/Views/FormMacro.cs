@@ -77,9 +77,9 @@ namespace Sats.Views
 
         private void btnApagarM_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(lbMacrosPonto.SelectedItem.ToString().Split(" - ")[0]);
             try
             {
+                int id = Convert.ToInt32(lbMacrosPonto.SelectedItem.ToString().Split(" - ")[0]);
                 using var context = new Context();
                 {                    
                     var query = context.Macros.Where(s => s.ID == id).FirstOrDefault();
