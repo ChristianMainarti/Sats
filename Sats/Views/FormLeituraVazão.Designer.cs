@@ -99,7 +99,7 @@ namespace Sats.Views
             this.mtxDataHoraV.Location = new System.Drawing.Point(113, 307);
             this.mtxDataHoraV.Mask = "00/00/0000 90:00";
             this.mtxDataHoraV.Name = "mtxDataHoraV";
-            this.mtxDataHoraV.Size = new System.Drawing.Size(158, 25);
+            this.mtxDataHoraV.Size = new System.Drawing.Size(115, 25);
             this.mtxDataHoraV.TabIndex = 6;
             this.mtxDataHoraV.ValidatingType = typeof(System.DateTime);
             // 
@@ -107,7 +107,7 @@ namespace Sats.Views
             // 
             this.txtLeituraVazão.Location = new System.Drawing.Point(112, 215);
             this.txtLeituraVazão.Name = "txtLeituraVazão";
-            this.txtLeituraVazão.Size = new System.Drawing.Size(158, 25);
+            this.txtLeituraVazão.Size = new System.Drawing.Size(192, 25);
             this.txtLeituraVazão.TabIndex = 5;
             // 
             // label3
@@ -123,7 +123,7 @@ namespace Sats.Views
             // 
             this.txtLeituristaV.Location = new System.Drawing.Point(112, 123);
             this.txtLeituristaV.Name = "txtLeituristaV";
-            this.txtLeituristaV.Size = new System.Drawing.Size(158, 25);
+            this.txtLeituristaV.Size = new System.Drawing.Size(192, 25);
             this.txtLeituristaV.TabIndex = 3;
             // 
             // label2
@@ -140,7 +140,7 @@ namespace Sats.Views
             this.cbLeituraVPonto.FormattingEnabled = true;
             this.cbLeituraVPonto.Location = new System.Drawing.Point(112, 29);
             this.cbLeituraVPonto.Name = "cbLeituraVPonto";
-            this.cbLeituraVPonto.Size = new System.Drawing.Size(158, 27);
+            this.cbLeituraVPonto.Size = new System.Drawing.Size(192, 27);
             this.cbLeituraVPonto.TabIndex = 1;
             // 
             // label1

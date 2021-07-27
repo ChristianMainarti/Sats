@@ -33,10 +33,10 @@ namespace Sats
             this.macrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leiturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarLeituraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vazãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bombaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nivelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarLeituraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@ namespace Sats
             this.leiturasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(365, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,27 +75,6 @@ namespace Sats
             this.leiturasToolStripMenuItem.Text = "Leituras";
             this.leiturasToolStripMenuItem.Click += new System.EventHandler(this.leiturasToolStripMenuItem_Click);
             // 
-            // vazãoToolStripMenuItem
-            // 
-            this.vazãoToolStripMenuItem.Name = "vazãoToolStripMenuItem";
-            this.vazãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vazãoToolStripMenuItem.Text = "Vazão";
-            this.vazãoToolStripMenuItem.Click += new System.EventHandler(this.vazãoToolStripMenuItem_Click);
-            // 
-            // bombaToolStripMenuItem
-            // 
-            this.bombaToolStripMenuItem.Name = "bombaToolStripMenuItem";
-            this.bombaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.bombaToolStripMenuItem.Text = "Bomba";
-            this.bombaToolStripMenuItem.Click += new System.EventHandler(this.bombaToolStripMenuItem_Click);
-            // 
-            // nivelToolStripMenuItem
-            // 
-            this.nivelToolStripMenuItem.Name = "nivelToolStripMenuItem";
-            this.nivelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nivelToolStripMenuItem.Text = "Nivel";
-            this.nivelToolStripMenuItem.Click += new System.EventHandler(this.nivelToolStripMenuItem_Click);
-            // 
             // cadastrarLeituraToolStripMenuItem
             // 
             this.cadastrarLeituraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -103,15 +82,36 @@ namespace Sats
             this.bombaToolStripMenuItem,
             this.nivelToolStripMenuItem});
             this.cadastrarLeituraToolStripMenuItem.Name = "cadastrarLeituraToolStripMenuItem";
-            this.cadastrarLeituraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarLeituraToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.cadastrarLeituraToolStripMenuItem.Text = "Cadastrar Leitura";
+            // 
+            // vazãoToolStripMenuItem
+            // 
+            this.vazãoToolStripMenuItem.Name = "vazãoToolStripMenuItem";
+            this.vazãoToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.vazãoToolStripMenuItem.Text = "Vazão";
+            this.vazãoToolStripMenuItem.Click += new System.EventHandler(this.vazãoToolStripMenuItem_Click);
+            // 
+            // bombaToolStripMenuItem
+            // 
+            this.bombaToolStripMenuItem.Name = "bombaToolStripMenuItem";
+            this.bombaToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.bombaToolStripMenuItem.Text = "Bomba";
+            this.bombaToolStripMenuItem.Click += new System.EventHandler(this.bombaToolStripMenuItem_Click);
+            // 
+            // nivelToolStripMenuItem
+            // 
+            this.nivelToolStripMenuItem.Name = "nivelToolStripMenuItem";
+            this.nivelToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.nivelToolStripMenuItem.Text = "Nivel";
+            this.nivelToolStripMenuItem.Click += new System.EventHandler(this.nivelToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(365, 265);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";

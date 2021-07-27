@@ -98,7 +98,7 @@ namespace Sats.Views
             this.mtbDataHoraB.Location = new System.Drawing.Point(107, 288);
             this.mtbDataHoraB.Mask = "00/00/0000 90:00";
             this.mtbDataHoraB.Name = "mtbDataHoraB";
-            this.mtbDataHoraB.Size = new System.Drawing.Size(142, 25);
+            this.mtbDataHoraB.Size = new System.Drawing.Size(102, 25);
             this.mtbDataHoraB.TabIndex = 8;
             this.mtbDataHoraB.ValidatingType = typeof(System.DateTime);
             // 
@@ -106,7 +106,7 @@ namespace Sats.Views
             // 
             this.txtLeituristaB.Location = new System.Drawing.Point(106, 115);
             this.txtLeituristaB.Name = "txtLeituristaB";
-            this.txtLeituristaB.Size = new System.Drawing.Size(143, 25);
+            this.txtLeituristaB.Size = new System.Drawing.Size(175, 25);
             this.txtLeituristaB.TabIndex = 6;
             // 
             // cbEstadoMedidor
@@ -117,7 +117,7 @@ namespace Sats.Views
             "0"});
             this.cbEstadoMedidor.Location = new System.Drawing.Point(106, 201);
             this.cbEstadoMedidor.Name = "cbEstadoMedidor";
-            this.cbEstadoMedidor.Size = new System.Drawing.Size(143, 27);
+            this.cbEstadoMedidor.Size = new System.Drawing.Size(175, 27);
             this.cbEstadoMedidor.TabIndex = 5;
             // 
             // cbLeituraB
@@ -125,7 +125,7 @@ namespace Sats.Views
             this.cbLeituraB.FormattingEnabled = true;
             this.cbLeituraB.Location = new System.Drawing.Point(106, 27);
             this.cbLeituraB.Name = "cbLeituraB";
-            this.cbLeituraB.Size = new System.Drawing.Size(143, 27);
+            this.cbLeituraB.Size = new System.Drawing.Size(175, 27);
             this.cbLeituraB.TabIndex = 4;
             // 
             // label6

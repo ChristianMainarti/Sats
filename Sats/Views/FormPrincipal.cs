@@ -27,6 +27,7 @@ namespace Sats
         {
             FormNovoMacro form = new();
             form.Show();
+            Close();
         }
 
         private void pontosToolStripMenuItem_Click(object sender, EventArgs e)

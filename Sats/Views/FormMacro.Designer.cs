@@ -34,19 +34,18 @@ namespace Sats.Views
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTopTelaPontos = new System.Windows.Forms.Label();
             this.btnNovoMacro = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEditarM = new System.Windows.Forms.Button();
+            this.btnApagarM = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lbMacrosPonto);
-            this.panel1.Location = new System.Drawing.Point(33, 263);
+            this.panel1.Location = new System.Drawing.Point(277, 170);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(730, 256);
+            this.panel1.Size = new System.Drawing.Size(217, 256);
             this.panel1.TabIndex = 0;
             // 
             // lbMacrosPonto
@@ -56,9 +55,8 @@ namespace Sats.Views
             this.lbMacrosPonto.ItemHeight = 15;
             this.lbMacrosPonto.Location = new System.Drawing.Point(0, 0);
             this.lbMacrosPonto.Name = "lbMacrosPonto";
-            this.lbMacrosPonto.Size = new System.Drawing.Size(730, 256);
+            this.lbMacrosPonto.Size = new System.Drawing.Size(217, 256);
             this.lbMacrosPonto.TabIndex = 0;
-            this.lbMacrosPonto.SelectedIndexChanged += new System.EventHandler(this.lbMacrosPonto_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -67,7 +65,7 @@ namespace Sats.Views
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(804, 114);
+            this.panel2.Size = new System.Drawing.Size(544, 114);
             this.panel2.TabIndex = 1;
             // 
             // lblTopTelaPontos
@@ -92,33 +90,42 @@ namespace Sats.Views
             this.btnNovoMacro.TabIndex = 2;
             this.btnNovoMacro.Text = "Novo Macro";
             this.btnNovoMacro.UseVisualStyleBackColor = false;
-            this.btnNovoMacro.Click += new System.EventHandler(this.button1_Click);
+            this.btnNovoMacro.Click += new System.EventHandler(this.btnNovoMacro_Click);
             // 
-            // textBox1
+            // btnEditarM
             // 
-            this.textBox1.Location = new System.Drawing.Point(474, 170);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 23);
-            this.textBox1.TabIndex = 3;
+            this.btnEditarM.BackColor = System.Drawing.Color.LightBlue;
+            this.btnEditarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditarM.Location = new System.Drawing.Point(69, 260);
+            this.btnEditarM.Name = "btnEditarM";
+            this.btnEditarM.Size = new System.Drawing.Size(102, 43);
+            this.btnEditarM.TabIndex = 3;
+            this.btnEditarM.Text = "Editar Macro";
+            this.btnEditarM.UseVisualStyleBackColor = false;
+            this.btnEditarM.Click += new System.EventHandler(this.btnEditarM_Click);
             // 
-            // pictureBox1
+            // btnApagarM
             // 
-            this.pictureBox1.Image = global::Sats.Properties.Resources.Search_16x;
-            this.pictureBox1.Location = new System.Drawing.Point(702, 170);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 23);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.btnApagarM.BackColor = System.Drawing.Color.LightBlue;
+            this.btnApagarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApagarM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnApagarM.Location = new System.Drawing.Point(69, 350);
+            this.btnApagarM.Name = "btnApagarM";
+            this.btnApagarM.Size = new System.Drawing.Size(102, 48);
+            this.btnApagarM.TabIndex = 4;
+            this.btnApagarM.Text = "Apagar Macro";
+            this.btnApagarM.UseVisualStyleBackColor = false;
+            this.btnApagarM.Click += new System.EventHandler(this.btnApagarM_Click);
             // 
             // FormMacro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(804, 557);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(544, 443);
+            this.Controls.Add(this.btnApagarM);
+            this.Controls.Add(this.btnEditarM);
             this.Controls.Add(this.btnNovoMacro);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -128,9 +135,7 @@ namespace Sats.Views
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -139,9 +144,9 @@ namespace Sats.Views
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNovoMacro;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTopTelaPontos;
         private System.Windows.Forms.ListBox lbMacrosPonto;
+        private System.Windows.Forms.Button btnEditarM;
+        private System.Windows.Forms.Button btnApagarM;
     }
 }

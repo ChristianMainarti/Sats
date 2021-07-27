@@ -18,7 +18,10 @@ namespace Sats
         {
             InitializeComponent();
         }
-
+        public FormTelaPontos(int id)
+        {
+            InitializeComponent();
+        }
         private void CarregaDados()
         {
             try

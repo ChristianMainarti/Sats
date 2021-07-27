@@ -13,6 +13,7 @@ namespace Sats.Views
 {
     public partial class FormMacro : Form
     {
+        int id;
         public FormMacro()
         {
             InitializeComponent();
@@ -26,7 +27,8 @@ namespace Sats.Views
                     var query = context.Macros.Select(s => new
                     {
                         s.ID,
-                        s.Nome_Macro
+                        s.Nome_Macro,
+                        s.Pontos
                     }).ToList();
                     if (query!=null)
                     {
@@ -37,24 +39,64 @@ namespace Sats.Views
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine(e.Message);
+                MessageBox.Show("Não foi possivel carregar os dados", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
         private void FormMacro_Load(object sender, EventArgs e)
         {
             CarregaDados();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNovoMacro_Click(object sender, EventArgs e)
         {
             FormNovoMacro form = new FormNovoMacro();
             form.Show();
         }
-        private void lbMacrosPonto_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnEditarM_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using var context = new Context();
+                {
+                    int id = Convert.ToInt32(lbMacrosPonto.SelectedItem.ToString().Split(" - ")[0]);
+                    FormNovoMacro form = new(id);
+                    form.Show();
+                    lbMacrosPonto.Items.Clear();
+                    CarregaDados();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Selecione o Macro antes de editar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
 
+        }
+
+        private void btnApagarM_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(lbMacrosPonto.SelectedItem.ToString().Split(" - ")[0]);
+            try
+            {
+                using var context = new Context();
+                {                    
+                    var query = context.Macros.Where(s => s.ID == id).FirstOrDefault();
+                    if (query!= null)
+                    {
+                        context.Macros.Remove(query);
+                        context.SaveChanges();
+                        lbMacrosPonto.Items.Clear();
+                        CarregaDados();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi possivel encontrar o macro ", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -17,6 +17,10 @@ namespace Sats.Views
         {
             InitializeComponent();
         }
+        public FormNovoMacro(int id)
+        {
+            InitializeComponent();
+        }
 
         private void FormNovoMacro_Load(object sender, EventArgs e)
         {
