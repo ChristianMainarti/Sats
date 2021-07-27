@@ -1,4 +1,4 @@
-﻿using Sats.Models;
+﻿    using Sats.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,6 +67,8 @@ namespace Sats.Views
             }
             catch (Exception)
             {
+                MessageBox.Show("Não foi Possível Carregar as Leituras!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                Close();
             }
         }
 

@@ -64,7 +64,7 @@ namespace Sats.Views
                             cbLeituraNPonto.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
                         }
                     }
-                    var query = context.ConfigNvs.Select(s => new { s.LimSup, s.LimInf }).ToList();
+                    //var query = context.ConfigNvs.Select(s => new { s.LimSup, s.LimInf }).ToList();
                 }
             }
             catch (Exception)

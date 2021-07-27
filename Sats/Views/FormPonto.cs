@@ -15,7 +15,6 @@ namespace Sats.Views
     {
         string tipo;
         int id;
-        
         public FormPonto(string tipo)
         {
             this.tipo = tipo;
@@ -25,7 +24,6 @@ namespace Sats.Views
         public FormPonto()
         {
             InitializeComponent();
-
         }
         private void CadLeitura()
         {
@@ -33,64 +31,119 @@ namespace Sats.Views
             {
                 FormLeituraVazão form = new();
                 form.Show();
+                lvPontoLeituras.Items.Clear();
+                CarregaDados(tipo);
             }
             else if (tipo == "Bomba")
             {
                 FormLeituraBomba form = new();
                 form.Show();
+                lvPontoLeituras.Items.Clear();
+                CarregaDados(tipo);
             }
             else
             {
                 FormLeituraNível form = new();
                 form.Show();
+                lvPontoLeituras.Items.Clear();
+                CarregaDados(tipo);
             }
         }
-        private void EditaLeitura()
+        private void EditaLeitura(int id)
         {
-            using var context = new Context();
+            id = Convert.ToInt32(lvPontoLeituras.SelectedItems[0].Text);
+            try
             {
-                int id = Convert.ToInt32(clbLeituraPontos.SelectedItem.ToString().Split(" - ")[0]);
+                using var context = new Context();
                 if (tipo == "Vazão")
                 {
                     FormLeituraVazão formVazão = new(id);
                     formVazão.Show();
+                    lvPontoLeituras.Items.Clear();
+                    CarregaDados(tipo);
                 }
                 else if (tipo == "Bomba")
                 {
                     FormLeituraBomba formBomba = new(id);
                     formBomba.Show();
+                    lvPontoLeituras.Items.Clear();
+                    CarregaDados(tipo);
                 }
                 else
                 {
                     FormLeituraNível formNível = new(id);
-                    formNível.Show();
+                    formNível.Show(); 
+                    lvPontoLeituras.Items.Clear();
+                    CarregaDados(tipo);
                 }
-                
-                clbLeituraPontos.Items.Clear();
                 lvPontoLeituras.Items.Clear();
                 CarregaDados(tipo);
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("Não foi Possível editar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }            
         }
         private void ApagaLeitura(int id)
         {
+            id = Convert.ToInt32(lvPontoLeituras.SelectedItems[0].Text);
             try
             {
                 using (var context = new Context())
                 {
-                    var query = context.Pontos.Where(s => s.ID_Ponto == id).First();
-                    if (query != null)
+
+                    if (tipo == "Bomba")
                     {
-                        context.Pontos.Remove(query);
-                        context.SaveChanges();
-                        clbLeituraPontos.Items.Clear();
-                        lvPontoLeituras.Items.Clear();
-                        CarregaDados(tipo);
+                        var query = context.LeituraBombas.Where(s => s.ID_Leitura == id).FirstOrDefault();
+                        if (query != null)
+                        {
+                            context.LeituraBombas.Remove(query);
+                            context.SaveChanges();
+                            lvPontoLeituras.Items.Clear();
+                            CarregaDados(tipo);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else if (tipo=="Vazão")
+                    {
+                        var query = context.LeituraVazãos.Where(s => s.ID_Leitura == id).FirstOrDefault();
+                        if (query != null)
+                        {
+                            context.LeituraVazãos.Remove(query);
+                            context.SaveChanges();
+                            lvPontoLeituras.Items.Clear();
+                            CarregaDados(tipo);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        var query = context.LeituraNívels.Where(s => s.ID_Leitura == id).FirstOrDefault();
+                        if (query != null)
+                        {
+                            context.LeituraNívels.Remove(query);
+                            context.SaveChanges();
+                            lvPontoLeituras.Items.Clear();
+                            CarregaDados(tipo);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        }
                     }
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
         private void CarregaDados(string tipo)
@@ -107,31 +160,20 @@ namespace Sats.Views
                                 s.Ponto_Leitura,
                                 s.Leiturista,
                                 s.Data_Hora,
-                                s.Valor_Leitura
-                            }).ToList();
-                            var query2 = context.Pontos.Select(s => new
-                            {
-                                s.ID_Ponto,
-                                s.Nome_Ponto
-                            }
-                            ).ToList();
-                            if (query2 != null)
-                            {
-                                foreach (var item in query2)
-                                {
-                                    clbLeituraPontos.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
-                                }
-                            }
+                                s.Valor_Leitura,
+                                s.ID_Leitura,
+                                s.Ponto.Nome_Ponto
+                            }).ToList();                            
                                 if (query != null)
                                 {
                                 foreach (var item in query)
                                 {
-                                    clbLeituraPontos.Items.Add($"{item.Ponto_Leitura}");
-                                    string[] listview = new string[4];
-                                    listview[0] = item.Ponto_Leitura.ToString();
-                                    listview[1] = item.Leiturista;
-                                    listview[2] = item.Data_Hora.ToString();
-                                    listview[3] = item.Valor_Leitura.ToString();
+                                    string[] listview = new string[5];
+                                    listview[0] = item.ID_Leitura.ToString();
+                                    listview[1] = item.Nome_Ponto;
+                                    listview[2] = item.Leiturista;
+                                    listview[3] = item.Data_Hora.ToString();
+                                    listview[4] = item.Valor_Leitura.ToString();
                                     lvPontoLeituras.Items.Add(new ListViewItem(listview));
                                 }
                             }
@@ -145,18 +187,20 @@ namespace Sats.Views
                                 s.Ponto_Leitura,
                                 s.Leiturista,
                                 s.Data_Hora,
-                                s.Valor_Leitura
-                            }).ToList();
+                                s.Valor_Leitura,
+                                s.ID_Leitura,
+                                s.Ponto.Nome_Ponto
+                            }).ToList();                                               
                             if (query != null)
                             {
                                 foreach (var item in query)
                                 {
-                                    clbLeituraPontos.Items.Add($"{item.Ponto_Leitura}");
-                                    string[] listview = new string[4];
-                                    listview[0] = item.Ponto_Leitura.ToString();
-                                    listview[1] = item.Leiturista;
-                                    listview[2] = item.Data_Hora.ToString();
-                                    listview[3] = item.Valor_Leitura.ToString();
+                                    string[] listview = new string[5];
+                                    listview[0] = item.ID_Leitura.ToString();
+                                    listview[1] = item.Nome_Ponto;
+                                    listview[2] = item.Leiturista;
+                                    listview[3] = item.Data_Hora.ToString();
+                                    listview[4] = item.Valor_Leitura.ToString();
                                     lvPontoLeituras.Items.Add(new ListViewItem(listview));
                                 }
                             }
@@ -170,18 +214,20 @@ namespace Sats.Views
                                 s.Ponto_Leitura,
                                 s.Leiturista,
                                 s.Data_Hora,
-                                s.Valor_Leitura
-                            }).ToList();
+                                s.Valor_Leitura,
+                                s.ID_Leitura,
+                                s.Ponto.Nome_Ponto
+                            }).ToList();                           
                             if (query != null)
                             {
                                 foreach (var item in query)
                                 {
-                                    clbLeituraPontos.Items.Add($"{item.Ponto_Leitura}");
-                                    string[] listview = new string[4];
-                                    listview[0] = item.Ponto_Leitura.ToString();
-                                    listview[1] = item.Leiturista;
-                                    listview[2] = item.Data_Hora.ToString();
-                                    listview[3] = item.Valor_Leitura.ToString();
+                                    string[] listview = new string[5];
+                                    listview[0] = item.ID_Leitura.ToString();
+                                    listview[1] = item.Nome_Ponto;
+                                    listview[2] = item.Leiturista;
+                                    listview[3] = item.Data_Hora.ToString();
+                                    listview[4] = item.Valor_Leitura.ToString();
                                     lvPontoLeituras.Items.Add(new ListViewItem(listview));
                                 }
                             }
@@ -189,8 +235,10 @@ namespace Sats.Views
                     }
                 }                
             }
-            catch (Exception)
-            {            
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("Não foi Possível Carregar as Leituras!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
         private void FormPonto_Load(object sender, EventArgs e)
@@ -213,12 +261,12 @@ namespace Sats.Views
         {
             try
             {
-                EditaLeitura();
+                EditaLeitura(id);
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
         private void btnApagaLeitura_Click(object sender, EventArgs e)
@@ -229,14 +277,9 @@ namespace Sats.Views
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
-        }
-
-        private void clbLeituraPontos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -71,9 +71,10 @@ namespace Sats.Views
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi Possível Carregar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
 
