@@ -18,7 +18,11 @@ namespace Sats.Views
         {
             InitializeComponent();
         }
-        public void CarregaDados()
+        FormMacro(int id)
+        {
+            InitializeComponent();
+        }
+        public void CarregaDados(int id)
         {
             try
             {
@@ -47,7 +51,7 @@ namespace Sats.Views
         }
         private void FormMacro_Load(object sender, EventArgs e)
         {
-            CarregaDados();
+            CarregaDados(id);
         }
         private void btnNovoMacro_Click(object sender, EventArgs e)
         {
@@ -64,7 +68,7 @@ namespace Sats.Views
                     FormNovoMacro form = new(id);
                     form.ShowDialog();
                     lbMacrosPonto.Items.Clear();
-                    CarregaDados();
+                    CarregaDados(id);
                 }
             }
             catch (Exception ex)
@@ -88,7 +92,7 @@ namespace Sats.Views
                         context.Macros.Remove(query);
                         context.SaveChanges();
                         lbMacrosPonto.Items.Clear();
-                        CarregaDados();
+                        CarregaDados(id);
                     }
                 }
             }

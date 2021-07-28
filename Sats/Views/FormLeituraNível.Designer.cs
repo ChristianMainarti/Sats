@@ -57,6 +57,7 @@ namespace Sats.Views
             // 
             // cbLeituraNPonto
             // 
+            this.cbLeituraNPonto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLeituraNPonto.FormattingEnabled = true;
             this.cbLeituraNPonto.Location = new System.Drawing.Point(113, 27);
             this.cbLeituraNPonto.Name = "cbLeituraNPonto";

@@ -111,6 +111,7 @@ namespace Sats.Views
             // 
             // cbEstadoMedidor
             // 
+            this.cbEstadoMedidor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstadoMedidor.FormattingEnabled = true;
             this.cbEstadoMedidor.Items.AddRange(new object[] {
             "1",
@@ -122,6 +123,7 @@ namespace Sats.Views
             // 
             // cbLeituraB
             // 
+            this.cbLeituraB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLeituraB.FormattingEnabled = true;
             this.cbLeituraB.Location = new System.Drawing.Point(106, 27);
             this.cbLeituraB.Name = "cbLeituraB";

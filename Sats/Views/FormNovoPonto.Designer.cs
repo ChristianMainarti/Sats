@@ -58,14 +58,14 @@ namespace Sats.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 119);
+            this.panel1.Size = new System.Drawing.Size(844, 135);
             this.panel1.TabIndex = 0;
             // 
             // labPontoPonto
             // 
             this.labPontoPonto.AutoSize = true;
             this.labPontoPonto.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labPontoPonto.Location = new System.Drawing.Point(34, 48);
+            this.labPontoPonto.Location = new System.Drawing.Point(34, 54);
             this.labPontoPonto.Name = "labPontoPonto";
             this.labPontoPonto.Size = new System.Drawing.Size(125, 26);
             this.labPontoPonto.TabIndex = 0;
@@ -88,16 +88,16 @@ namespace Sats.Views
             this.panel2.Controls.Add(this.txtNomePonto);
             this.panel2.Controls.Add(this.cboxPontoMacro);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(12, 181);
+            this.panel2.Location = new System.Drawing.Point(12, 205);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(820, 231);
+            this.panel2.Size = new System.Drawing.Size(820, 262);
             this.panel2.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(427, 111);
+            this.label7.Location = new System.Drawing.Point(427, 126);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 19);
             this.label7.TabIndex = 13;
@@ -105,7 +105,7 @@ namespace Sats.Views
             // 
             // txtLimInf
             // 
-            this.txtLimInf.Location = new System.Drawing.Point(536, 111);
+            this.txtLimInf.Location = new System.Drawing.Point(536, 126);
             this.txtLimInf.Name = "txtLimInf";
             this.txtLimInf.Size = new System.Drawing.Size(230, 23);
             this.txtLimInf.TabIndex = 12;
@@ -114,7 +114,7 @@ namespace Sats.Views
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(427, 72);
+            this.label6.Location = new System.Drawing.Point(427, 82);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 19);
             this.label6.TabIndex = 11;
@@ -122,7 +122,7 @@ namespace Sats.Views
             // 
             // txtLimSup
             // 
-            this.txtLimSup.Location = new System.Drawing.Point(536, 69);
+            this.txtLimSup.Location = new System.Drawing.Point(536, 78);
             this.txtLimSup.Name = "txtLimSup";
             this.txtLimSup.Size = new System.Drawing.Size(230, 23);
             this.txtLimSup.TabIndex = 10;
@@ -131,7 +131,7 @@ namespace Sats.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(427, 154);
+            this.label5.Location = new System.Drawing.Point(427, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 19);
             this.label5.TabIndex = 9;
@@ -139,21 +139,22 @@ namespace Sats.Views
             // 
             // txtNomeMedidor
             // 
-            this.txtNomeMedidor.Location = new System.Drawing.Point(536, 154);
+            this.txtNomeMedidor.Location = new System.Drawing.Point(536, 175);
             this.txtNomeMedidor.Name = "txtNomeMedidor";
             this.txtNomeMedidor.Size = new System.Drawing.Size(230, 23);
             this.txtNomeMedidor.TabIndex = 8;
             // 
             // cbxPontoTipo
             // 
+            this.cbxPontoTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPontoTipo.FormattingEnabled = true;
             this.cbxPontoTipo.Items.AddRange(new object[] {
             "Vazão",
             "Nivel",
             "Bomba"});
-            this.cbxPontoTipo.Location = new System.Drawing.Point(536, 27);
+            this.cbxPontoTipo.Location = new System.Drawing.Point(536, 31);
             this.cbxPontoTipo.Name = "cbxPontoTipo";
-            this.cbxPontoTipo.Size = new System.Drawing.Size(230, 23);
+            this.cbxPontoTipo.Size = new System.Drawing.Size(230, 25);
             this.cbxPontoTipo.TabIndex = 7;
             this.cbxPontoTipo.SelectedIndexChanged += new System.EventHandler(this.cbxPontoTipo_SelectedIndexChanged);
             // 
@@ -161,7 +162,7 @@ namespace Sats.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(427, 31);
+            this.label4.Location = new System.Drawing.Point(427, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 19);
             this.label4.TabIndex = 6;
@@ -169,7 +170,7 @@ namespace Sats.Views
             // 
             // txtEndereço
             // 
-            this.txtEndereço.Location = new System.Drawing.Point(117, 192);
+            this.txtEndereço.Location = new System.Drawing.Point(117, 218);
             this.txtEndereço.Name = "txtEndereço";
             this.txtEndereço.Size = new System.Drawing.Size(649, 23);
             this.txtEndereço.TabIndex = 5;
@@ -178,7 +179,7 @@ namespace Sats.Views
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(44, 192);
+            this.label3.Location = new System.Drawing.Point(44, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 19);
             this.label3.TabIndex = 4;
@@ -188,7 +189,7 @@ namespace Sats.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(44, 111);
+            this.label2.Location = new System.Drawing.Point(44, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 19);
             this.label2.TabIndex = 3;
@@ -196,24 +197,25 @@ namespace Sats.Views
             // 
             // txtNomePonto
             // 
-            this.txtNomePonto.Location = new System.Drawing.Point(117, 107);
+            this.txtNomePonto.Location = new System.Drawing.Point(117, 121);
             this.txtNomePonto.Name = "txtNomePonto";
             this.txtNomePonto.Size = new System.Drawing.Size(230, 23);
             this.txtNomePonto.TabIndex = 2;
             // 
             // cboxPontoMacro
             // 
+            this.cboxPontoMacro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxPontoMacro.FormattingEnabled = true;
-            this.cboxPontoMacro.Location = new System.Drawing.Point(117, 23);
+            this.cboxPontoMacro.Location = new System.Drawing.Point(117, 26);
             this.cboxPontoMacro.Name = "cboxPontoMacro";
-            this.cboxPontoMacro.Size = new System.Drawing.Size(230, 23);
+            this.cboxPontoMacro.Size = new System.Drawing.Size(230, 25);
             this.cboxPontoMacro.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(44, 27);
+            this.label1.Location = new System.Drawing.Point(44, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 19);
             this.label1.TabIndex = 0;
@@ -224,9 +226,9 @@ namespace Sats.Views
             this.btnSalvarNovoPonto.BackColor = System.Drawing.Color.LightBlue;
             this.btnSalvarNovoPonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvarNovoPonto.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSalvarNovoPonto.Location = new System.Drawing.Point(56, 436);
+            this.btnSalvarNovoPonto.Location = new System.Drawing.Point(56, 494);
             this.btnSalvarNovoPonto.Name = "btnSalvarNovoPonto";
-            this.btnSalvarNovoPonto.Size = new System.Drawing.Size(75, 30);
+            this.btnSalvarNovoPonto.Size = new System.Drawing.Size(75, 34);
             this.btnSalvarNovoPonto.TabIndex = 2;
             this.btnSalvarNovoPonto.Text = "Salvar";
             this.btnSalvarNovoPonto.UseVisualStyleBackColor = false;
@@ -234,13 +236,14 @@ namespace Sats.Views
             // 
             // FormNovoPonto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(844, 501);
+            this.ClientSize = new System.Drawing.Size(844, 568);
             this.Controls.Add(this.btnSalvarNovoPonto);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "FormNovoPonto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pontos";

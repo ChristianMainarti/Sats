@@ -20,8 +20,30 @@ namespace Sats.Views
         public FormNovoMacro(int id)
         {
             InitializeComponent();
+            BuscaMacro(id);
         }
-
+        private void BuscaMacro(int id)
+        {
+            try
+            {
+                using var context = new Context();
+                {
+                    var query = context.Macros.Where(s => s.ID == id).Select(s => new
+                    {
+                        s.Nome_Macro
+                    }).First();
+                    if (query!=null)
+                    {
+                        txtNomeMacro.Text = query.Nome_Macro; 
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("Macro Não encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void FormNovoMacro_Load(object sender, EventArgs e)
         {
 

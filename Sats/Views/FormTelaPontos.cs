@@ -95,10 +95,11 @@ namespace Sats
         private void btnAttPonto_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
+                int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
                 using var context = new Context();
                 {
-                    int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
+                    
                     FormNovoPonto form = new(id);
                     form.Show();
                     listbPontosPontos.Items.Clear();
