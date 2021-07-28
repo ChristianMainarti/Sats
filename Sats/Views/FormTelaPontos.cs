@@ -51,14 +51,19 @@ namespace Sats
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                MessageBox.Show("Não foi possivel carregar os dados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void FormPonto_Load(object sender, EventArgs e)
         {
             CarregaDados();
         }
-        public void ApagaPonto(int id)
+        private void ApagaPonto(int id)
         {
+            if (MessageBox.Show("Confirma a operação?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
             try
             {
                 using (var context = new Context())
@@ -77,12 +82,13 @@ namespace Sats
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                MessageBox.Show("Não foi possivel apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnNovoPonto_Click(object sender, EventArgs e)
         {
             FormNovoPonto form = new();
-            form.Show();
+            form.ShowDialog();
             listbPontosPontos.Items.Clear();
             lvPontosPontos.Items.Clear();
             CarregaDados();
@@ -101,7 +107,7 @@ namespace Sats
                 {
                     
                     FormNovoPonto form = new(id);
-                    form.Show();
+                    form.ShowDialog();
                     listbPontosPontos.Items.Clear();
                     lvPontosPontos.Items.Clear();
                     CarregaDados();  
@@ -156,20 +162,20 @@ namespace Sats
             }
             catch (Exception)
             {
-                MessageBox.Show("Não foi possível selecionar, favor confir o tipo do ponto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error  );
+                MessageBox.Show("Não foi possível selecionar, favor confir o tipo do ponto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnNovaLeitura_Click(object sender, EventArgs e)
         {
             try
             {
-                //falta tratar direito, continua dando erro
+                
                 if (listbPontosPontos.SelectedIndex > -1)
                 {
                     using var context = new Context();
                     {
-                        string tipo = listbPontosPontos.SelectedItem.ToString().Split(" - ")[2];
-                        SelecionaTipoLeitura(tipo);
+                        string ponto = listbPontosPontos.SelectedItem.ToString();
+                        SelecionaTipoLeitura(ponto);
                     }
                 }
                 else 
@@ -179,12 +185,12 @@ namespace Sats
             }
             catch (Exception)
             {
-                MessageBox.Show("Não foi possível Salvar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Não foi possível Salvar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnMostraLeiturasPonto_Click(object sender, EventArgs e)
         {
-            string tipo = listbPontosPontos.SelectedItem.ToString().Split(" - ")[2];
+            string tipo = listbPontosPontos.SelectedItem.ToString();
             FormPonto form = new(tipo);
             form.ShowDialog();
         }

@@ -17,12 +17,6 @@ namespace Sats
         {
             InitializeComponent();
         }
-
-        private void leiturasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cadastrarMacroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormNovoMacro form = new();

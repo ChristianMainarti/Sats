@@ -30,7 +30,7 @@ namespace Sats.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labTítuloV = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.mtxDataHoraV = new System.Windows.Forms.MaskedTextBox();
@@ -49,7 +49,7 @@ namespace Sats.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.labTítuloV);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -57,15 +57,15 @@ namespace Sats.Views
             this.panel1.Size = new System.Drawing.Size(448, 125);
             this.panel1.TabIndex = 0;
             // 
-            // label5
+            // labTítuloV
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(34, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(217, 28);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Nova Leitura Vazão";
+            this.labTítuloV.AutoSize = true;
+            this.labTítuloV.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labTítuloV.Location = new System.Drawing.Point(34, 42);
+            this.labTítuloV.Name = "labTítuloV";
+            this.labTítuloV.Size = new System.Drawing.Size(217, 28);
+            this.labTítuloV.TabIndex = 1;
+            this.labTítuloV.Text = "Nova Leitura Vazão";
             // 
             // panel2
             // 
@@ -83,7 +83,6 @@ namespace Sats.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(373, 378);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label4
             // 
@@ -115,9 +114,9 @@ namespace Sats.Views
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 218);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 19);
+            this.label3.Size = new System.Drawing.Size(75, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Volume (L/s)";
+            this.label3.Text = "Volume (L)";
             // 
             // txtLeituristaV
             // 
@@ -189,6 +188,7 @@ namespace Sats.Views
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormLeituraVazão";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormLeituraVazão_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -212,6 +212,6 @@ namespace Sats.Views
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mtxDataHoraV;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labTítuloV;
     }
 }

@@ -40,10 +40,10 @@ namespace Sats
             this.col_Tipo = new System.Windows.Forms.ColumnHeader();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAttPonto = new System.Windows.Forms.Button();
-            this.listbPontosPontos = new System.Windows.Forms.CheckedListBox();
             this.btnApagarPonto = new System.Windows.Forms.Button();
             this.btnNovaLeitura = new System.Windows.Forms.Button();
             this.btnMostraLeiturasPonto = new System.Windows.Forms.Button();
+            this.listbPontosPontos = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -148,14 +148,6 @@ namespace Sats
             this.btnAttPonto.UseVisualStyleBackColor = false;
             this.btnAttPonto.Click += new System.EventHandler(this.btnAttPonto_Click);
             // 
-            // listbPontosPontos
-            // 
-            this.listbPontosPontos.FormattingEnabled = true;
-            this.listbPontosPontos.Location = new System.Drawing.Point(12, 375);
-            this.listbPontosPontos.Name = "listbPontosPontos";
-            this.listbPontosPontos.Size = new System.Drawing.Size(120, 112);
-            this.listbPontosPontos.TabIndex = 13;
-            // 
             // btnApagarPonto
             // 
             this.btnApagarPonto.BackColor = System.Drawing.Color.LightBlue;
@@ -195,15 +187,24 @@ namespace Sats
             this.btnMostraLeiturasPonto.UseVisualStyleBackColor = false;
             this.btnMostraLeiturasPonto.Click += new System.EventHandler(this.btnMostraLeiturasPonto_Click);
             // 
+            // listbPontosPontos
+            // 
+            this.listbPontosPontos.FormattingEnabled = true;
+            this.listbPontosPontos.ItemHeight = 17;
+            this.listbPontosPontos.Location = new System.Drawing.Point(12, 380);
+            this.listbPontosPontos.Name = "listbPontosPontos";
+            this.listbPontosPontos.Size = new System.Drawing.Size(120, 106);
+            this.listbPontosPontos.TabIndex = 16;
+            // 
             // FormTelaPontos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(659, 499);
+            this.Controls.Add(this.listbPontosPontos);
             this.Controls.Add(this.btnMostraLeiturasPonto);
             this.Controls.Add(this.btnNovaLeitura);
-            this.Controls.Add(this.listbPontosPontos);
             this.Controls.Add(this.btnApagarPonto);
             this.Controls.Add(this.btnAttPonto);
             this.Controls.Add(this.label2);
@@ -234,10 +235,10 @@ namespace Sats
         private System.Windows.Forms.ColumnHeader col_Tipo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAttPonto;
-        private System.Windows.Forms.CheckedListBox listbPontosPontos;
         private System.Windows.Forms.Button btnApagarPonto;
         private System.Windows.Forms.Button btnNovaLeitura;
         private System.Windows.Forms.Button btnMostraLeiturasPonto;
+        private System.Windows.Forms.ListBox listbPontosPontos;
     }
 }
 

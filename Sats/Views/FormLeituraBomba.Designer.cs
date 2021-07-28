@@ -30,7 +30,7 @@ namespace Sats.Views
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labTítuloB = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.mtbDataHoraB = new System.Windows.Forms.MaskedTextBox();
@@ -49,7 +49,7 @@ namespace Sats.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labTítuloB);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -57,15 +57,15 @@ namespace Sats.Views
             this.panel1.Size = new System.Drawing.Size(444, 126);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // labTítuloB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(35, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nova Leitura Bomba";
+            this.labTítuloB.AutoSize = true;
+            this.labTítuloB.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labTítuloB.Location = new System.Drawing.Point(35, 44);
+            this.labTítuloB.Name = "labTítuloB";
+            this.labTítuloB.Size = new System.Drawing.Size(228, 28);
+            this.labTítuloB.TabIndex = 0;
+            this.labTítuloB.Text = "Nova Leitura Bomba";
             // 
             // label2
             // 
@@ -204,7 +204,7 @@ namespace Sats.Views
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labTítuloB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;

@@ -13,14 +13,21 @@ namespace Sats.Views
 {
     public partial class FormLeituraNível : Form
     {
+        int id;
+        string ponto;
+        bool verifica = false;
         public FormLeituraNível()
         {
             InitializeComponent();
         }
-        public FormLeituraNível(int id)
+        public FormLeituraNível(string ponto,int idLeitura)
         {
+            this.ponto = ponto;
             InitializeComponent();
-            BuscaLeitura(id);
+            verifica = true;
+            labTítuloN.Text = "Atualiza Leitura Nível";
+
+            BuscaLeitura(idLeitura);
         }
         private void BuscaLeitura(int id)
         {
@@ -54,21 +61,30 @@ namespace Sats.Views
         {
             try
             {
-                using (var context = new Context())
+                if (!verifica)
                 {
-                    var queryP = context.Pontos.Select(r => new { r.ID_Ponto, r.Nome_Ponto}).ToList();
-                    if (queryP!=null)
+                    using (var context = new Context())
                     {
-                        foreach (var item in queryP)
+                        var query = context.Pontos.Select(s => new { s.ID_Ponto, s.Nome_Ponto });
+                        if (query != null)
                         {
-                            cbLeituraNPonto.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
+                            foreach (var item in query)
+                            {
+                                cbLeituraNPonto.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
+                            }
                         }
                     }
-                    //var query = context.ConfigNvs.Select(s => new { s.LimSup, s.LimInf }).ToList();
+                }
+                else
+                {
+                    cbLeituraNPonto.Items.Add(ponto);
+                    cbLeituraNPonto.SelectedIndex = 0;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi Possível Carregar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

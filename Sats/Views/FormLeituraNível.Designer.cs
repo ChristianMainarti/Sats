@@ -37,7 +37,7 @@ namespace Sats.Views
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTituloLeitura = new System.Windows.Forms.Label();
+            this.labTítuloN = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtDataHoraN = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -108,22 +108,22 @@ namespace Sats.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Controls.Add(this.lblTituloLeitura);
+            this.panel1.Controls.Add(this.labTítuloN);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(448, 125);
             this.panel1.TabIndex = 8;
             // 
-            // lblTituloLeitura
+            // labTítuloN
             // 
-            this.lblTituloLeitura.AutoSize = true;
-            this.lblTituloLeitura.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTituloLeitura.Location = new System.Drawing.Point(34, 47);
-            this.lblTituloLeitura.Name = "lblTituloLeitura";
-            this.lblTituloLeitura.Size = new System.Drawing.Size(207, 28);
-            this.lblTituloLeitura.TabIndex = 1;
-            this.lblTituloLeitura.Text = "Nova Leitura Nível";
+            this.labTítuloN.AutoSize = true;
+            this.labTítuloN.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labTítuloN.Location = new System.Drawing.Point(34, 47);
+            this.labTítuloN.Name = "labTítuloN";
+            this.labTítuloN.Size = new System.Drawing.Size(207, 28);
+            this.labTítuloN.TabIndex = 1;
+            this.labTítuloN.Text = "Nova Leitura Nível";
             // 
             // panel2
             // 
@@ -206,7 +206,7 @@ namespace Sats.Views
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTituloLeitura;
+        private System.Windows.Forms.Label labTítuloN;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSalvarLeituraN;
         private System.Windows.Forms.Label label1;

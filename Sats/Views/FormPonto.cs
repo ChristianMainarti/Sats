@@ -14,12 +14,16 @@ namespace Sats.Views
     public partial class FormPonto : Form
     {
         string tipo;
-        int id;
-        public FormPonto(string tipo)
+        int idleitura;
+        int idponto;
+        string ponto;
+        public FormPonto(string ponto)
         {
-            this.tipo = tipo;
+            this.ponto = ponto;
+            tipo = ponto.Split(" - ")[2];
+            idponto = Convert.ToInt32(ponto.Split(" - ")[0]);
             InitializeComponent();
-            CarregaDados(tipo);
+            CarregaDados();
         }
         public FormPonto()
         {
@@ -27,67 +31,82 @@ namespace Sats.Views
         }
         private void CadLeitura()
         {
-            if (tipo == "Vazão")
-            {
-                FormLeituraVazão form = new();
-                form.Show();
-                lvPontoLeituras.Items.Clear();
-                CarregaDados(tipo);
-            }
-            else if (tipo == "Bomba")
-            {
-                FormLeituraBomba form = new();
-                form.Show();
-                lvPontoLeituras.Items.Clear();
-                CarregaDados(tipo);
-            }
-            else
-            {
-                FormLeituraNível form = new();
-                form.Show();
-                lvPontoLeituras.Items.Clear();
-                CarregaDados(tipo);
-            }
-        }
-        private void EditaLeitura(int id)
-        {
             try
             {
-                id = Convert.ToInt32(lvPontoLeituras.SelectedItems[0].Text);
-
-                using var context = new Context();
                 if (tipo == "Vazão")
                 {
-                    FormLeituraVazão formVazão = new(id);
-                    formVazão.ShowDialog();
+                    FormLeituraVazão form = new();
+                    form.ShowDialog();
                     lvPontoLeituras.Items.Clear();
-                    CarregaDados(tipo);
+                    CarregaDados();
                 }
                 else if (tipo == "Bomba")
                 {
-                    FormLeituraBomba formBomba = new(id);
-                    formBomba.ShowDialog();
+                    FormLeituraBomba form = new();
+                    form.ShowDialog();
                     lvPontoLeituras.Items.Clear();
-                    CarregaDados(tipo);
+                    CarregaDados();
                 }
                 else
                 {
-                    FormLeituraNível formNível = new(id);
-                    formNível.ShowDialog(); 
+                    FormLeituraNível form = new();
+                    form.ShowDialog();
                     lvPontoLeituras.Items.Clear();
-                    CarregaDados(tipo);
+                    CarregaDados();
                 }
-                lvPontoLeituras.Items.Clear();
-                CarregaDados(tipo);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                MessageBox.Show("Não foi Possível editar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi Possível Salvar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            lvPontoLeituras.Items.Clear();
+            CarregaDados();
+        }
+        private void EditaLeitura()
+        {
+            int idLeitura = Convert.ToInt32(lvPontoLeituras.SelectedItems[0].Text);
+            try
+            { 
+                using var context = new Context();
+                if (tipo == "Vazão")
+                {
+                    FormLeituraVazão formVazão = new(ponto, idLeitura);
+                    formVazão.ShowDialog();
+                    lvPontoLeituras.Items.Clear();
+                    CarregaDados();
+                }
+                else if (tipo == "Bomba")
+                {
+                    FormLeituraBomba formBomba = new(ponto, idLeitura);
+                    formBomba.ShowDialog();
+                    lvPontoLeituras.Items.Clear();
+                    CarregaDados();
+                }
+                else
+                {
+                    FormLeituraNível formNível = new(ponto, idLeitura);
+                    formNível.ShowDialog(); 
+                    lvPontoLeituras.Items.Clear();
+                    CarregaDados();
+                }
+                lvPontoLeituras.Items.Clear();
+                CarregaDados();
+                lvPontoLeituras.Items.Clear();
+                CarregaDados();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("Não foi Possível editar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }            
         }
         private void ApagaLeitura(int id)
         {
+            if (MessageBox.Show("Confirma a operação?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
             id = Convert.ToInt32(lvPontoLeituras.SelectedItems[0].Text);
             try
             {
@@ -102,11 +121,11 @@ namespace Sats.Views
                             context.LeituraBombas.Remove(query);
                             context.SaveChanges();
                             lvPontoLeituras.Items.Clear();
-                            CarregaDados(tipo);
+                            CarregaDados();
                         }
                         else
                         {
-                            MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            MessageBox.Show("Não foi Possível apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else if (tipo=="Vazão")
@@ -117,11 +136,11 @@ namespace Sats.Views
                             context.LeituraVazãos.Remove(query);
                             context.SaveChanges();
                             lvPontoLeituras.Items.Clear();
-                            CarregaDados(tipo);
+                            CarregaDados();
                         }
                         else
                         {
-                            MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            MessageBox.Show("Não foi Possível apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
@@ -132,11 +151,11 @@ namespace Sats.Views
                             context.LeituraNívels.Remove(query);
                             context.SaveChanges();
                             lvPontoLeituras.Items.Clear();
-                            CarregaDados(tipo);
+                            CarregaDados();
                         }
                         else
                         {
-                            MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            MessageBox.Show("Não foi Possível apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -144,10 +163,10 @@ namespace Sats.Views
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                MessageBox.Show("Não foi Possível apagar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi Possível apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void CarregaDados(string tipo)
+        private void CarregaDados()
         {
             try
             {
@@ -156,7 +175,7 @@ namespace Sats.Views
                     if (tipo == "Vazão")
                     {
                         {
-                            var query = context.LeituraVazãos.Select(s => new
+                            var query = context.LeituraVazãos.Where(s=> s.Ponto_Leitura == idponto).Select(s => new
                             {
                                 s.Ponto_Leitura,
                                 s.Leiturista,
@@ -183,7 +202,7 @@ namespace Sats.Views
                     else if (tipo == "Bomba")
                     {
                         {
-                            var query = context.LeituraBombas.Select(s => new
+                            var query = context.LeituraBombas.Where(s => s.Ponto_Leitura == idponto).Select(s => new
                             {
                                 s.Ponto_Leitura,
                                 s.Leiturista,
@@ -210,7 +229,7 @@ namespace Sats.Views
                     else
                     {
                         {
-                            var query = context.LeituraNívels.Select(s => new
+                            var query = context.LeituraNívels.Where(s => s.Ponto_Leitura == idponto).Select(s => new
                             {
                                 s.Ponto_Leitura,
                                 s.Leiturista,
@@ -263,7 +282,7 @@ namespace Sats.Views
         {
             try
             {
-                EditaLeitura(id);
+                EditaLeitura();
             }
             catch (Exception ex)
             {
@@ -275,7 +294,7 @@ namespace Sats.Views
         {
             try
             {
-                ApagaLeitura(id);
+                ApagaLeitura(idleitura);
             }
             catch (Exception ex)
             {

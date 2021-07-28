@@ -81,6 +81,10 @@ namespace Sats.Views
 
         private void btnApagarM_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Confirma a operação?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
             try
             {
                 int id = Convert.ToInt32(lbMacrosPonto.SelectedItem.ToString().Split(" - ")[0]);

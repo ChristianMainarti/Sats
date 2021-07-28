@@ -48,7 +48,7 @@ namespace Sats.Views
                     }
                     else
                     {
-                        MessageBox.Show("Ponto Não encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Ponto Não encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Close();
                     }
                 }

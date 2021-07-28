@@ -73,7 +73,6 @@ namespace Sats
             this.leiturasToolStripMenuItem.Name = "leiturasToolStripMenuItem";
             this.leiturasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.leiturasToolStripMenuItem.Text = "Leituras";
-            this.leiturasToolStripMenuItem.Click += new System.EventHandler(this.leiturasToolStripMenuItem_Click);
             // 
             // cadastrarLeituraToolStripMenuItem
             // 

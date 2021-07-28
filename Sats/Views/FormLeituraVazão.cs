@@ -13,14 +13,20 @@ namespace Sats.Views
 {
     public partial class FormLeituraVazão : Form
     {
+        int id;
+        string ponto;
+        bool verifica = false;
         public FormLeituraVazão()
         {
             InitializeComponent();
         }
-        public FormLeituraVazão(int id)
+        public FormLeituraVazão(string ponto, int idLeitura)
         {
+            this.ponto = ponto;
             InitializeComponent();
-            BuscaLeitura(id);
+            verifica = true;
+            labTítuloV.Text = "Atualiza Leitura Vazão";
+            BuscaLeitura(idLeitura);
         }
         private void BuscaLeitura(int id)
         {
@@ -49,37 +55,40 @@ namespace Sats.Views
                 }
             }
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void FormLeituraVazão_Load(object sender, EventArgs e)
         {
             try
             {
-                using (var context = new Context())
+                if (!verifica)
                 {
-                    var query = context.Pontos.Select(s => new {s.ID_Ponto, s.Nome_Ponto});
-                    if (query!=null)
+                    using (var context = new Context())
                     {
-                        foreach (var item in query)
+                        var query = context.Pontos.Select(s => new { s.ID_Ponto, s.Nome_Ponto });
+                        if (query != null)
                         {
-                            cbLeituraVPonto.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
+                            foreach (var item in query)
+                            {
+                                cbLeituraVPonto.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
+                            }
                         }
                     }
+                }
+                else
+                {
+                    cbLeituraVPonto.Items.Add(ponto);
+                    cbLeituraVPonto.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Não foi Possível Carregar!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi Possível Carregar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btnSalvarLeituraV_Click(object sender, EventArgs e)
         {
+
             try
             {
                 using (var context = new Context())
@@ -98,7 +107,7 @@ namespace Sats.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("Não foi possível salvar a Leitura, tente novamente.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Não foi possível salvar a Leitura, tente novamente.", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             }
         }
     }

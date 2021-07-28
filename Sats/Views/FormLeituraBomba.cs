@@ -13,14 +13,21 @@ namespace Sats.Views
 {
     public partial class FormLeituraBomba : Form
     {
+        int id;
+        string ponto;
+        bool verifica = false;
+
         public FormLeituraBomba()
         {
             InitializeComponent();
         }
-        public  FormLeituraBomba(int id)
+        public  FormLeituraBomba(string ponto, int idLeitura)
         {
+            this.ponto = ponto;
             InitializeComponent();
-            BuscaLeitura(id);
+            verifica = true;
+            labTítuloB.Text = "Atualiza Leitura Bomba";
+            BuscaLeitura(idLeitura);
         }
         private void BuscaLeitura(int id)
         {
@@ -53,22 +60,31 @@ namespace Sats.Views
         {
             try
             {
-                using (var context = new Context())
+                if (!verifica)
                 {
-                    var query = context.Pontos.Select(s => new {s.ID_Ponto, s.Nome_Ponto});
-                    if (query!=null)
+                    using (var context = new Context())
                     {
-                        foreach (var item in query)
+                        var query = context.Pontos.Select(s => new { s.ID_Ponto, s.Nome_Ponto });
+                        if (query != null)
                         {
-                            cbLeituraB.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
+                            foreach (var item in query)
+                            {
+                                cbLeituraB.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto}");
+                            }
                         }
                     }
                 }
+                else
+                {
+                    cbLeituraB.Items.Add(ponto);
+                    cbLeituraB.SelectedIndex = 0;
+                }
+                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Não foi Possível Carregar as Leituras!", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                Close();
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi Possível Carregar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
