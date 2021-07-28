@@ -99,7 +99,6 @@ namespace Sats
             this.col_Tipo});
             this.lvPontosPontos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lvPontosPontos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvPontosPontos.FullRowSelect = true;
             this.lvPontosPontos.GridLines = true;
             this.lvPontosPontos.HideSelection = false;
             this.lvPontosPontos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
