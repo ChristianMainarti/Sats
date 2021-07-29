@@ -16,12 +16,15 @@ namespace Sats.Views
         int id;
         string ponto;
         bool verifica = false;
+        bool isEdit;
         public FormLeituraVazão()
         {
+            this.isEdit = false;
             InitializeComponent();
         }
         public FormLeituraVazão(string ponto, int idLeitura)
         {
+            this.isEdit = true;
             this.ponto = ponto;
             InitializeComponent();
             verifica = true;
@@ -53,6 +56,43 @@ namespace Sats.Views
                     MessageBox.Show("Ponto Não encontrado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
+            }
+        }
+        private void CadLeitura()
+        {
+            try
+            {
+                using (var context = new Context())
+                {
+                    if (!isEdit)
+                    {
+                        LeituraVazão leituraVazão = new();
+                        leituraVazão.Ponto_Leitura = Convert.ToInt32(cbLeituraVPonto.SelectedItem.ToString().Split(" - ")[0]);
+                        leituraVazão.Leiturista = txtLeituristaV.Text;
+                        leituraVazão.Valor_Leitura = (float)(float.Parse(txtLeituraVazão.Text) * 3.6);
+                        leituraVazão.Data_Hora = Convert.ToDateTime(mtxDataHoraV.Text);
+                        context.LeituraVazãos.Add(leituraVazão);
+                        context.SaveChanges();
+                        MessageBox.Show("Nova leitura salva com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        var query = context.LeituraVazãos.Where(s => s.ID_Leitura == id).FirstOrDefault();
+                        query.Ponto_Leitura = Convert.ToInt32(cbLeituraVPonto.SelectedItem.ToString().Split(" - ")[0]);
+                        query.Leiturista = txtLeituristaV.Text;
+                        query.Valor_Leitura = (float)(float.Parse(txtLeituraVazão.Text) * 3.6);
+                        query.Data_Hora = Convert.ToDateTime(mtxDataHoraV.Text);
+                        context.SaveChanges();
+                        MessageBox.Show("Leitura editada com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                }
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Não foi possível salvar a Leitura, tente novamente.", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             }
         }
         private void FormLeituraVazão_Load(object sender, EventArgs e)
@@ -89,26 +129,7 @@ namespace Sats.Views
         private void btnSalvarLeituraV_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                using (var context = new Context())
-                {
-                    LeituraVazão leituraVazão = new();
-                    leituraVazão.Ponto_Leitura = Convert.ToInt32(cbLeituraVPonto.SelectedItem.ToString().Split(" - ")[0]);
-                    leituraVazão.Leiturista = txtLeituristaV.Text;
-                    leituraVazão.Valor_Leitura = (float)(float.Parse(txtLeituraVazão.Text) * 3.6);
-                    leituraVazão.Data_Hora = Convert.ToDateTime(mtxDataHoraV.Text);
-
-                context.LeituraVazãos.Add(leituraVazão);
-                context.SaveChanges();                
-                }
-                MessageBox.Show("Nova leitura salva com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Não foi possível salvar a Leitura, tente novamente.", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            }
+            CadLeitura();
         }
     }
 }
