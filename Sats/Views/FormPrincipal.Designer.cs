@@ -37,7 +37,9 @@ namespace Sats
             this.vazãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bombaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nivelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -105,19 +107,31 @@ namespace Sats
             this.nivelToolStripMenuItem.Text = "Nivel";
             this.nivelToolStripMenuItem.Click += new System.EventHandler(this.nivelToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Sats.Properties.Resources.sats1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(984, 637);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormPrincipal";
+            this.Text = "SATS";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +147,6 @@ namespace Sats
         private System.Windows.Forms.ToolStripMenuItem vazãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bombaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nivelToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
