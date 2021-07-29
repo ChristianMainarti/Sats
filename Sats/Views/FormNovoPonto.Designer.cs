@@ -156,7 +156,6 @@ namespace Sats.Views
             this.cbxPontoTipo.Name = "cbxPontoTipo";
             this.cbxPontoTipo.Size = new System.Drawing.Size(230, 25);
             this.cbxPontoTipo.TabIndex = 7;
-            this.cbxPontoTipo.SelectedIndexChanged += new System.EventHandler(this.cbxPontoTipo_SelectedIndexChanged);
             // 
             // label4
             // 

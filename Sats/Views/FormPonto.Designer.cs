@@ -57,6 +57,7 @@ namespace Sats.Views
             // 
             // lvPontoLeituras
             // 
+            this.lvPontoLeituras.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.lvPontoLeituras.BackColor = System.Drawing.Color.AliceBlue;
             this.lvPontoLeituras.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colIDLeitura,

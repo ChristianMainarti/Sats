@@ -277,7 +277,6 @@ namespace Sats.Views
 
             }
         }
-
         private void btnEditaLeitura_Click(object sender, EventArgs e)
         {
             try

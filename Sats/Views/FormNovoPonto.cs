@@ -13,18 +13,73 @@ namespace Sats.Views
 {
     public partial class FormNovoPonto : Form
     {
-
+        int id;
+        bool isEdit;
+        string macro;
+        int idMacro;
+        bool verifica = false;
         public FormNovoPonto()
         {
+            this.isEdit = false;
             InitializeComponent();
         }
-        public FormNovoPonto(int id)
+        public FormNovoPonto(int id, string macro)
         {
+            this.isEdit = true;
+            this.id = id;
+            this.macro = macro.Split(" - ")[4];
+            idMacro = Convert.ToInt32(macro.Split(" - ")[3]);
             InitializeComponent();
+            verifica = true;
             labPontoPonto.Text = "Atualizar Ponto";
-            BuscaPonto(id);
-        }        
-        public void BuscaPonto(int id)
+            BuscaPonto(id, macro);
+        }
+        private void CadPonto()
+        {
+            try
+            {
+                using (var context = new Context())
+                {
+                    if (!isEdit)
+                    {
+                        Ponto ponto = new();
+                        ConfigNv configNv = new();
+                        ponto.Macro_ID = Convert.ToInt32(cboxPontoMacro.SelectedItem.ToString().Split("-")[0]);
+                        ponto.Nome_Ponto = txtNomePonto.Text;
+                        ponto.Endereço_Ponto = txtEndereço.Text;
+                        ponto.Nome_Medidor = txtNomeMedidor.Text;
+                        ponto.Tipo_Medidor = cbxPontoTipo.Text;
+                        configNv.LimSup = Convert.ToInt32(txtLimSup.Text);
+                        configNv.LimInf = Convert.ToInt32(txtLimInf.Text);
+                        context.ConfigNvs.Add(configNv);
+                        context.Pontos.Add(ponto);
+                        context.SaveChanges();
+                        MessageBox.Show("Novo ponto salvo com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        var query = context.Pontos.Where(s => s.ID_Ponto == id).FirstOrDefault();
+                        query.Macro_ID = idMacro;
+                        query.Nome_Ponto = txtNomePonto.Text;
+                        query.Endereço_Ponto = txtEndereço.Text;
+                        query.Nome_Medidor = txtNomeMedidor.Text;
+                        query.Tipo_Medidor = cbxPontoTipo.Text;
+                        var query2 = context.ConfigNvs.Where(s => s.Ponto_ID == id).FirstOrDefault();
+                        query2.LimSup = Convert.ToInt32(txtLimSup.Text);
+                        query2.LimInf = Convert.ToInt32(txtLimInf.Text);
+                        context.SaveChanges();
+                        MessageBox.Show("Ponto editado com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void BuscaPonto(int id, string macro)
         {
             try
             {
@@ -60,57 +115,36 @@ namespace Sats.Views
         }
         private void btnSalvarNovoPonto_Click(object sender, EventArgs e)
         {
-                try
-            {
-                using (var Context = new Context())
-                {
-                    Ponto ponto = new();
-                    ConfigNv configNv = new();
-                    ponto.Macro_ID = Convert.ToInt32(cboxPontoMacro.SelectedItem.ToString().Split("-")[0]);
-                    ponto.Nome_Ponto = txtNomePonto.Text;
-                    ponto.Endereço_Ponto = txtEndereço.Text;
-                    ponto.Nome_Medidor = txtNomeMedidor.Text;
-                    ponto.Tipo_Medidor = cbxPontoTipo.Text;
-                    configNv.LimSup = Convert.ToInt32(txtLimSup.Text);
-                    configNv.LimInf = Convert.ToInt32(txtLimInf.Text);
-                    Context.ConfigNvs.Add(configNv);
-                    Context.Pontos.Add(ponto);
-                    Context.SaveChanges();
-                }
-                MessageBox.Show("Novo ponto salvo com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
-            catch   
-            {
-                MessageBox.Show("Não foi Possível salvar!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            CadPonto();           
         }
         private void Pontos_Load(object sender, EventArgs e)
         {
             try
             {
-                using (var context = new Context())
+                if (!verifica)
                 {
-                    var query = context.Macros.Select(s => new { s.ID, s.Nome_Macro }).ToList();
-                    if (query != null)
+                    using (var context = new Context())
                     {
-                        foreach (var item in query)
+                        var query = context.Macros.Select(s => new { s.ID, s.Nome_Macro });
+                        if (query != null)
                         {
-                            cboxPontoMacro.Items.Add($"{item.ID} - {item.Nome_Macro}");
+                            foreach (var item in query)
+                            {
+                                cboxPontoMacro.Items.Add($"{item.ID} - {item.Nome_Macro}");
+                            }
                         }
                     }
                 }
+                else
+                {
+                    cboxPontoMacro.Items.Add(macro);
+                    cboxPontoMacro.SelectedIndex = 0;
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-            }
-        }
-
-        private void cbxPontoTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxPontoTipo.SelectedIndex.ToString() == "Nivel")
-            {
-                
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Não foi possivel carregar os pontos","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

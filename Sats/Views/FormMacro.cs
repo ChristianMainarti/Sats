@@ -22,7 +22,7 @@ namespace Sats.Views
         {
             InitializeComponent();
         }
-        public void CarregaDados(int id)
+        public void CarregaDados()
         {
             try
             {
@@ -51,12 +51,14 @@ namespace Sats.Views
         }
         private void FormMacro_Load(object sender, EventArgs e)
         {
-            CarregaDados(id);
+            CarregaDados();
         }
         private void btnNovoMacro_Click(object sender, EventArgs e)
         {
             FormNovoMacro form = new FormNovoMacro();
             form.ShowDialog();
+            lbMacrosPonto.Items.Clear();
+            CarregaDados();
         }
         private void btnEditarM_Click(object sender, EventArgs e)
         {
@@ -68,7 +70,7 @@ namespace Sats.Views
                     FormNovoMacro form = new(id);
                     form.ShowDialog();
                     lbMacrosPonto.Items.Clear();
-                    CarregaDados(id);
+                    CarregaDados();
                 }
             }
             catch (Exception ex)
@@ -87,6 +89,7 @@ namespace Sats.Views
             }
             try
             {
+                string macro = lbMacrosPonto.SelectedItem.ToString();
                 int id = Convert.ToInt32(lbMacrosPonto.SelectedItem.ToString().Split(" - ")[0]);
                 using var context = new Context();
                 {                    
@@ -96,7 +99,7 @@ namespace Sats.Views
                         context.Macros.Remove(query);
                         context.SaveChanges();
                         lbMacrosPonto.Items.Clear();
-                        CarregaDados(id);
+                        CarregaDados();
                     }
                 }
             }

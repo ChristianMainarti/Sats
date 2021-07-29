@@ -14,13 +14,18 @@ namespace Sats
 {
     public partial class FormTelaPontos : Form
     {
+        int id;
+        string macro;
         public FormTelaPontos()
         {
             InitializeComponent();
         }
-        public FormTelaPontos(int id)
+        public FormTelaPontos(int id, string macro)
         {
+            this.macro = macro;
+            
             InitializeComponent();
+            CarregaDados();
         }
         private void CarregaDados()
         {
@@ -32,17 +37,20 @@ namespace Sats
                         s.ID_Ponto,
                         s.Nome_Ponto,
                         s.Macro_ID,
-                        s.Tipo_Medidor
+                        s.Tipo_Medidor,
+                        s.Macro.Nome_Macro
                     }).ToList();
+                    
                     if (query != null)
                     {
                         foreach (var item in query)
                         {
-                            listbPontosPontos.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto} - {item.Tipo_Medidor}");
-                            string[] listview = new string[3];
+                            listbPontosPontos.Items.Add($"{item.ID_Ponto} - {item.Nome_Ponto} - {item.Tipo_Medidor} - {item.Macro_ID} - {item.Nome_Macro}");
+                            string[] listview = new string[4];
                             listview[0] = item.Nome_Ponto;
                             listview[1] = item.Macro_ID.ToString();
-                            listview[2] = item.Tipo_Medidor;
+                            listview[2] = item.Nome_Macro;
+                            listview[3] = item.Tipo_Medidor;
                             lvPontosPontos.Items.Add(new ListViewItem(listview));
                         }
                     }
@@ -85,7 +93,7 @@ namespace Sats
                 MessageBox.Show("Não foi possivel apagar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void btnNovoPonto_Click(object sender, EventArgs e)
+        private void CadPonto()
         {
             FormNovoPonto form = new();
             form.ShowDialog();
@@ -93,30 +101,34 @@ namespace Sats
             lvPontosPontos.Items.Clear();
             CarregaDados();
         }
-        private void lbPontosPontos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string pegaItem = listbPontosPontos.SelectedItem.ToString();   
-
-        }
-        private void btnAttPonto_Click(object sender, EventArgs e)
+        private void EditaPonto()
         {
             try
             {
                 int id = Convert.ToInt32(listbPontosPontos.SelectedItem.ToString().Split(" - ")[0]);
+                string macro = listbPontosPontos.SelectedItem.ToString();
                 using var context = new Context();
                 {
-                    
-                    FormNovoPonto form = new(id);
+
+                    FormNovoPonto form = new(id, macro);
                     form.ShowDialog();
                     listbPontosPontos.Items.Clear();
                     lvPontosPontos.Items.Clear();
-                    CarregaDados();  
+                    CarregaDados();
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }    
+            }
+        }
+        private void btnNovoPonto_Click(object sender, EventArgs e)
+        {
+            CadPonto();    
+        }
+        private void btnAttPonto_Click(object sender, EventArgs e)
+        {
+            EditaPonto();
         }
         private void btnApagarPonto_Click(object sender, EventArgs e)
         {
@@ -137,17 +149,18 @@ namespace Sats
         {
             try
             {
+                string tipol = tipo.Split(" - ")[2];
                 using (var context = new Context())
                 {
-                    var query = context.Pontos.Where(s => s.Tipo_Medidor == tipo).First();
+                    var query = context.Pontos.Where(s => s.Tipo_Medidor == tipol).FirstOrDefault();
                     if (query!=null )
                     {
-                        if (tipo == "Vazão")
+                        if (tipol == "Vazão")
                         {
                             FormLeituraVazão form = new();
                             form.ShowDialog();
                         }
-                        else if (tipo == "Bomba")
+                        else if (tipol == "Bomba")
                         {
                             FormLeituraBomba form = new();
                             form.ShowDialog();
@@ -190,9 +203,17 @@ namespace Sats
         }
         private void btnMostraLeiturasPonto_Click(object sender, EventArgs e)
         {
-            string tipo = listbPontosPontos.SelectedItem.ToString();
-            FormPonto form = new(tipo);
-            form.ShowDialog();
+            try
+            {
+                string tipo = listbPontosPontos.SelectedItem.ToString();
+                FormPonto form = new(tipo);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Selecione o Ponto antes de clicar na operação", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

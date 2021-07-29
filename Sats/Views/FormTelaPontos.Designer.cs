@@ -37,6 +37,7 @@ namespace Sats
             this.lvPontosPontos = new System.Windows.Forms.ListView();
             this.col_Nome = new System.Windows.Forms.ColumnHeader();
             this.col_Macro = new System.Windows.Forms.ColumnHeader();
+            this.col_NomeMacro = new System.Windows.Forms.ColumnHeader();
             this.col_Tipo = new System.Windows.Forms.ColumnHeader();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAttPonto = new System.Windows.Forms.Button();
@@ -85,27 +86,32 @@ namespace Sats
             // panel2
             // 
             this.panel2.Controls.Add(this.lvPontosPontos);
-            this.panel2.Location = new System.Drawing.Point(192, 178);
+            this.panel2.Location = new System.Drawing.Point(138, 178);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(455, 240);
+            this.panel2.Size = new System.Drawing.Size(509, 240);
             this.panel2.TabIndex = 7;
             // 
             // lvPontosPontos
             // 
+            this.lvPontosPontos.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.lvPontosPontos.BackColor = System.Drawing.Color.AliceBlue;
             this.lvPontosPontos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_Nome,
             this.col_Macro,
+            this.col_NomeMacro,
             this.col_Tipo});
             this.lvPontosPontos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lvPontosPontos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvPontosPontos.FullRowSelect = true;
             this.lvPontosPontos.GridLines = true;
             this.lvPontosPontos.HideSelection = false;
+            this.lvPontosPontos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lvPontosPontos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
             this.lvPontosPontos.Location = new System.Drawing.Point(0, 0);
+            this.lvPontosPontos.MultiSelect = false;
             this.lvPontosPontos.Name = "lvPontosPontos";
-            this.lvPontosPontos.Size = new System.Drawing.Size(455, 240);
+            this.lvPontosPontos.Size = new System.Drawing.Size(509, 240);
             this.lvPontosPontos.TabIndex = 2;
             this.lvPontosPontos.UseCompatibleStateImageBehavior = false;
             this.lvPontosPontos.View = System.Windows.Forms.View.Details;
@@ -113,17 +119,22 @@ namespace Sats
             // col_Nome
             // 
             this.col_Nome.Text = "Nome";
-            this.col_Nome.Width = 150;
+            this.col_Nome.Width = 165;
             // 
             // col_Macro
             // 
-            this.col_Macro.Text = "Macro";
-            this.col_Macro.Width = 150;
+            this.col_Macro.Text = "ID Macro";
+            this.col_Macro.Width = 80;
+            // 
+            // col_NomeMacro
+            // 
+            this.col_NomeMacro.Text = "Nome Macro";
+            this.col_NomeMacro.Width = 170;
             // 
             // col_Tipo
             // 
             this.col_Tipo.Text = "Tipo";
-            this.col_Tipo.Width = 150;
+            this.col_Tipo.Width = 90;
             // 
             // label2
             // 
@@ -239,6 +250,7 @@ namespace Sats
         private System.Windows.Forms.Button btnNovaLeitura;
         private System.Windows.Forms.Button btnMostraLeiturasPonto;
         private System.Windows.Forms.ListBox listbPontosPontos;
+        private System.Windows.Forms.ColumnHeader col_NomeMacro;
     }
 }
 
